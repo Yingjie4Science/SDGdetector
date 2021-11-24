@@ -3,7 +3,8 @@ load('./R/SDG_keys.RData')
 library(dplyr)
 
 # identify 17 Sustainable Development Goals and associated targets in text
-# input: a dataframe
+# input: a dataframe with a column of "chr" type data
+# output: coded datafram with columns: statement, matched_sdg, matched_target
 findSDGs <- function(df) {
 
   text_df <- df %>% dplyr::select(where(is.character)) # locate the column of text
