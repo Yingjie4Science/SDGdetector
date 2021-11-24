@@ -1,52 +1,31 @@
+# load database
+load('./R/SDG_keys.RData')
+library(dplyr)
 
+# identify 17 Sustainable Development Goals and associated targets in text
+# input: a dataframe
+findSDGs <- function(df) {
 
-## 1. This function will be used to identify matches ############################################# #
+  text_df <- df %>% dplyr::select(where(is.character)) # locate the column of text
+  colnames(text_df) <- "statement"
+  coded_df <- text_df %>% dplyr::mutate(matched_sdg = '', matched_target = '')
 
-# THIS CODE IS TO IDENTIFY MATCHING ROWS, BUT IT DOES NOT EXTRACT SENTENCES
-# in the original dataframe, if it matches, then in a new column, say yes; if not, say no.
+  for (i in 1:nrow(SDG_keys)) {
+    sdg_id <- SDG_keys$SDG_id[i] # to add later
+    target_id <- SDG_keys$target_id[i]
+    target_key <- SDG_keys$SDG_keywords[i]
 
-sdg_detector <- function(dataframe, company_name) {
-
-  code <- dataframe %>%
-    dplyr::mutate(#match   = 0,
-      sdgs    = '', ## for later use, to append data to this column
-      n_total = 0,
-      sdgs_n  = '')
-
-  for (i in 1:nrow(SDG_keys)){                ## all SDG indicators
-    sdg_i_str <- SDG_keys$SDG_id[i]         ## the SDG id name
-    sdg_i_obj <- SDG_keys$SDG_keywords[i]   ## the corresponding SDG search term list
-
-    print(sdg_i_str)
-    # print(sdg_i_obj)
-
-    code <- code %>% as.data.frame() %>%
-      ## at the sentence level - count once ----------------------
-    dplyr::mutate(
-      match = ifelse(
-        grepl(pattern = sdg_i_obj, x = statement, ignore.case = T, perl = T), 1, 0))  %>% ## yes-1 or no-0 if they match
-      dplyr::mutate(sdgs = ifelse(match > 0, paste0(sdgs, ',', sdg_i_str), sdgs)) %>%
-
-      ## at the sentence level - count all matches ---------------
-    dplyr::mutate(
-      n       = str_count(string = statement, regex(pattern = sdg_i_obj, ignore_case = T)),
-      n_total = n_total + n,
-      sdgs_n  = ifelse(n > 0, paste0(sdgs_n, ',', sdg_i_str, '-', n), sdgs_n)) %>%
+    coded_df <- coded_df %>%
+      dplyr::mutate(match = ifelse(grepl(pattern = target_key, x = statement, ignore.case = T, perl = T), 1, 0)) %>%
+      dplyr::mutate(matched_target = ifelse(match > 0, paste0(matched_target, target_id, ', '), matched_target)) %>%
       as.data.frame()
   }
-
-
-  ### sort from most SDG hits to least (or, none)
-  coded <- code %>% arrange(desc(nchar(sdgs)), id)
-
-  ### save all the hits to xlsx for easier inspection.
-  # fname <- paste0(dirpath, 'DF_coded/', company_name, '_coded.xlsx'); fname
-  # writexl::write_xlsx(x = coded, path = fname)
-  fname <- paste0('./data/output/', company_name, '_coded.csv'); fname
-  readr::write_csv(x = coded, file = fname)
-  fname <- paste0('./data/output/', company_name, '_coded.RData'); fname
-  save(coded, file = fname)
-
-  return(coded)
-
+  coded_df <- subset(coded_df, select = -match)
+  return(coded_df)
 }
+
+test <- data.frame(boo=c('To this end, we tailor our products and services to suit our customers specific needsfrom home construction, improvement, and renovation to agricultural, industrial, and marine/hydraulic applications',
+                            'define and carry out a worldwide survey across Working with a diverse group of stakeholderslistening to their concerns and managing our relations in a proactive and fruitful wayis crucial to understanding our ecosystem and maximizing our positive impact in the places where we operate'))
+
+coded_test <- findSDGs(test)
+
