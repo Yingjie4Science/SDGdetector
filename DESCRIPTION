@@ -6,6 +6,7 @@ Authors@R: c(
       person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut"))
 Description: Identify 17 Sustainable Development Goals and associated targets in text.
 Imports: dplyr, magrittr, stringr
+Depends: R (>= 3.5.0)
 License: GPL
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
