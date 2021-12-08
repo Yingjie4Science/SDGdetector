@@ -35,7 +35,7 @@
 
 
 # load search terms of SDG targets
-load('R/sysdata.RData')
+load('data/SDG_keys.RData')
 
 findSDGs <- function(df, col) {
 
