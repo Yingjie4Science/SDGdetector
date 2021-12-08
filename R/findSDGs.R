@@ -12,6 +12,8 @@
 #' chunks of text. It takes a data frame with a specified column of text to process as
 #' inputs and outputs a data frame with original columns plus matched SDGs and targets.
 #'
+#' @name findSDGs
+#'
 #' @param df Data frame
 #' @param col Column name for text to be assessed
 #'
@@ -21,19 +23,19 @@
 #' details of specific targets.
 #'
 #' @importFrom magrittr %>%
-#' @importFrom dplyr mutate select relocate
+#' @importFrom dplyr mutate select relocate last_col
 #' @importFrom stringr str_count
 #'
 #' @export
 #'
-#' @example
+#' @examples
 #' my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
 #' contribute to slowing down climate change'))
 #' findSDGs(my_text, my_col)
 
 
-# load database of SDG targets
-load('./R/SDG_keys.RData')
+# load search terms of SDG targets
+load('R/sysdata.RData')
 
 findSDGs <- function(df, col) {
 
@@ -75,4 +77,3 @@ findSDGs <- function(df, col) {
 
   return(coded_df)
 }
-

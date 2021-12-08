@@ -1,11 +1,12 @@
 Package: findSDGs
-Title: SDG Detector
+Title: Find SDGs in Text
 Version: 0.0.0.9000
-Authors@R: 
-    c(person("Yingjie", "Li", "yingjieli.edu@gmail.com", role = c("aut", "cre")),
-      person("Meng", "Cai", "mengcai24601@gmail.com", role = c("aut", "cre")))
+Authors@R: c(
+      person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre")),
+      person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut"))
 Description: Identify 17 Sustainable Development Goals and associated targets in text.
-License: GPL (>= 3)
+Imports: dplyr, magrittr, stringr
+License: GPL
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
