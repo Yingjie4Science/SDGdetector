@@ -12,5 +12,5 @@ You can install `{findSDGs}` from GitHub with:
 ## Example usage
 
     library(findSDGs)
-    my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product contribute to slowing down climate change'))
+    my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product contributes to slowing down climate change'))
     findSDGs(my_text, my_col)
