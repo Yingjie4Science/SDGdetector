@@ -30,7 +30,7 @@
 #'
 #' @examples
 #' my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
-#' contribute to slowing down climate change'))
+#' contributes to slowing down climate change'))
 #' findSDGs(my_text, my_col)
 
 
@@ -40,7 +40,8 @@ load('data/SDG_keys.RData')
 findSDGs <- function(df, col) {
 
   # initialize a column to record matched targets
-  coded_df <- df %>% mutate(match_detail='')
+  match_detail <- ''
+  coded_df <- df %>% mutate(match_detail=match_detail)
 
   # loop over all patterns in database and record matches
   for (i in 1:nrow(SDG_keys)) {
@@ -77,3 +78,4 @@ findSDGs <- function(df, col) {
 
   return(coded_df)
 }
+

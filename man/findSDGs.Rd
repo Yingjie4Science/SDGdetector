@@ -27,6 +27,6 @@ inputs and outputs a data frame with original columns plus matched SDGs and targ
 }
 \examples{
 my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
-contribute to slowing down climate change'))
+contributes to slowing down climate change'))
 findSDGs(my_text, my_col)
 }

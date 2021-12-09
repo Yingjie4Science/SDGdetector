@@ -5,7 +5,7 @@
 \alias{SDG_keys}
 \title{SDG_keys}
 \format{
-An object of class \code{data.frame} with 361 rows and 3 columns.
+An object of class \code{data.frame} with 362 rows and 3 columns.
 }
 \usage{
 data(SDG_keys)
