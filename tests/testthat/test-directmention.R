@@ -1,0 +1,38 @@
+context("detect direct expressions of SDGs and targets in text")
+
+test_that("return data frames of correct size", {
+  df1 <- data.frame(col=c('SDG 1'))
+  df2 <- data.frame(col=c('SDG 1', 'SDG 2'))
+  expect_true(ncol(findSDGs(df1, col)) == 19)
+  expect_true(nrow(findSDGs(df1, col)) == 1)
+  expect_true(ncol(findSDGs(df2, col)) == 19)
+  expect_true(nrow(findSDGs(df2, col)) == 2)
+})
+
+test_that("Detect direct mentions of SDGs regardless of format", {
+  df1 <- data.frame(col=c('SDG 1'))
+  df2 <- data.frame(col=c('sdg2'))
+  df3 <- data.frame(col=c('SDG_10'))
+  df4 <- data.frame(col=c('GOAL 17'))
+  df5 <- data.frame(col=c('GOAL 20'))
+  expect_equal(findSDGs(df1, col)$match_detail, 'SDG1_general, ')
+  expect_equal(findSDGs(df2, col)$match_detail, 'SDG2_general, ')
+  expect_equal(findSDGs(df3, col)$match_detail, 'SDG10_general, ')
+  expect_equal(findSDGs(df4, col)$match_detail, 'SDG17_general, ')
+  expect_equal(findSDGs(df5, col)$match_detail, '')
+})
+
+test_that("Detect direct mentions of targets regardless of format", {
+  df1 <- data.frame(col=c('SDG 1.1'))
+  df2 <- data.frame(col=c('sdg1.A'))
+  df3 <- data.frame(col=c('SDG_1.a'))
+  df4 <- data.frame(col=c('TARGET 1.a'))
+  df5 <- data.frame(col=c('target1.b'))
+  df6 <- data.frame(col=c('target 1.z'))
+  expect_equal(findSDGs(df1, col)$match_detail, 'SDG1_general, SDG1_1, ')
+  expect_equal(findSDGs(df2, col)$match_detail, 'SDG1_general, SDG1_a, ')
+  expect_equal(findSDGs(df3, col)$match_detail, 'SDG1_general, SDG1_a, ')
+  expect_equal(findSDGs(df4, col)$match_detail, 'SDG1_a, ')
+  expect_equal(findSDGs(df5, col)$match_detail, 'SDG1_b, ')
+  expect_equal(findSDGs(df6, col)$match_detail, '')
+})
