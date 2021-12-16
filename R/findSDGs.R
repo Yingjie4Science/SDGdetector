@@ -45,11 +45,12 @@ findSDGs <- function(df, col) {
 
   # loop over all patterns in database and record matches
   for (i in 1:nrow(SDG_keys)) {
+
     key <- SDG_keys$SDG_keywords[i]
     id <- SDG_keys$SDG_id[i]
 
     coded_df <- coded_df %>%
-      mutate(match = ifelse(grepl(pattern = key, x = {{col}}, ignore.case = T, perl = T), 1, 0)) %>%
+      mutate(match = ifelse(grepl(pattern = key, x = as.character({{col}}), ignore.case = T, perl = T), 1, 0)) %>%
       mutate(match_detail = ifelse(match > 0, paste0(match_detail, id, ', '), match_detail)) %>%
       as.data.frame()
   }
@@ -77,5 +78,5 @@ findSDGs <- function(df, col) {
   coded_df <- coded_df %>% select(-match) %>% relocate(match_detail, .after=last_col())
 
   return(coded_df)
-}
 
+}
