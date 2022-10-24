@@ -1,18 +1,18 @@
 #' Identify SDGs in text
 #'
 #' @description
-#' The `findSDGs` function identify 17 Sustainable Development Goals and
-#' associated targets in text.
+#' The `SDGdetector` function identify 17 Sustainable Development Goals and
+#' associated 169 targets in text.
 #'
 #' @details
 #' In 2015, leaders worldwide adopted 17 Sustainable Development Goals (SDGs) with 169
 #' targets to be achieved by 2030 (https://sdgs.un.org). The framework of SDGs serves
-#' as a blueprint for shared prosperity for both people and the earth. `findSDGs`
+#' as a blueprint for shared prosperity for both people and the earth. `SDGdetector`
 #' identifies both direct and indirect expressions of SDGs and associated targets in
 #' chunks of text. It takes a data frame with a specified column of text to process as
 #' inputs and outputs a data frame with original columns plus matched SDGs and targets.
 #'
-#' @name findSDGs
+#' @name SDGdetector
 #'
 #' @param df Data frame
 #' @param col Column name for text to be assessed
@@ -31,17 +31,17 @@
 #' @examples
 #' my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
 #' contributes to slowing down climate change'))
-#' findSDGs(my_text, my_col)
+#' SDGdetector(my_text, my_col)
 
 
 # load search terms of SDG targets
 load('data/SDG_keys.RData')
 
-findSDGs <- function(df, col) {
+SDGdetector <- function(df, col) {
 
   # initialize a column to record matched targets
   match_detail <- ''
-  coded_df <- df %>% mutate(match_detail=match_detail)
+  coded_df <- df %>% dplyr::mutate(match_detail=match_detail)
 
   # loop over all patterns in database and record matches
   for (i in 1:nrow(SDG_keys)) {
@@ -50,8 +50,8 @@ findSDGs <- function(df, col) {
     id <- SDG_keys$SDG_id[i]
 
     coded_df <- coded_df %>%
-      mutate(match = ifelse(grepl(pattern = key, x = as.character({{col}}), ignore.case = T, perl = T), 1, 0)) %>%
-      mutate(match_detail = ifelse(match > 0, paste0(match_detail, id, ', '), match_detail)) %>%
+      dplyr::mutate(match = ifelse(grepl(pattern = key, x = as.character({{col}}), ignore.case = T, perl = T), 1, 0)) %>%
+      dplyr::mutate(match_detail = ifelse(match > 0, paste0(match_detail, id, ', '), match_detail)) %>%
       as.data.frame()
   }
 
@@ -75,7 +75,7 @@ findSDGs <- function(df, col) {
   coded_df$SDG17 <- str_count(coded_df$match_detail, pattern = "SDG17_")
 
   # organize data frame for output
-  coded_df <- coded_df %>% select(-match) %>% relocate(match_detail, .after=last_col())
+  coded_df <- coded_df %>% dplyr::select(-match) %>% relocate(match_detail, .after=last_col())
 
   return(coded_df)
 
