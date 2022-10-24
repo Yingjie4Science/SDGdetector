@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/431620191.svg)](https://zenodo.org/badge/latestdoi/431620191)
+
 <p align="center">
   <img src="/docs/images/SDG_detector.png" width="300" height="300"/>
 </p>
