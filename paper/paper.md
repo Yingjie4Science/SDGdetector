@@ -67,16 +67,3 @@ The authors acknowledge contributions from UN Global Sustainability Index Instit
 
 
 # References
-
-Bautista-Puig, N.; Mauleón E. (2019). Unveiling the path towards sustainability: is there a research interest on sustainable goals? In the 17th International Conference on Scientometrics & Informetrics (ISSI 2019), Rome (Italy), Volume II, ISBN 978-88-3381-118-5, p.2770-2771. 
-Cai, M., Li, Y., Huang, H., Decaminada, T., Kassens-noor, E. (2022). Sustainable development goals in smart city implementation (Manuscript in preparation).
-Duran-Silva, Nicolau, Fuster, Enric, Massucci, Francesco Alessandro, & Quinquillà, Arnau. (2019). A controlled vocabulary defining the semantic perimeter of Sustainable Development Goals (1.3) [Data set]. Zenodo. https://doi.org/10.5281/zenodo.4118028 
-Jayabalasingham, Bamini; Boverhof, Roy; Agnew, Kevin; Klein, L (2019), “Identifying research supporting the United Nations Sustainable Development Goals”, Mendeley Data, V1, doi: 10.17632/87txkw7khs.1
-Kassens-Noor, E (2022). Urban scAInce: explaining why and how cities transform through artificial intelligence (Manuscript in preparation).
-Li, Y., Frans, V., Zhang, Y., Cai, M., Chen, R., Vollbracht, M., Maltese, R., Xia, Z., Schatz, R., Liu, J. (2022) Global Business Giants’ Commitment to Sustainable Development Goals (Manuscript in revision)
-R Core Team (2021). R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing, Vienna, Austria. https://www.R-project.org/ 
-Schubert, G. (2020) Scientific publications on sustainable development. Stockholm University Library (in Swedish)
-UN (2017). Global Indicator Framework for the Sustainable Development Goals and Targets of the 2030 Agenda for Sustainable Development (A/RES/71/313, United Nations Statistics Division). https://unstats.un.org/sdgs/indicators/indicators-list/ 
-Vanderfeesten, Maurice, Otten, René, & Spielberg, Eike. (2020). Search Queries for "Mapping Research Output to the Sustainable Development Goals (SDGs)" v5.0.2 (5.0.2). Zenodo. https://doi.org/10.5281/zenodo.4883250  
-Wickham, H., et al (2019). Welcome to the Tidyverse. Journal of Open Source Software, 4(43), 1686. https://doi.org/10.21105/joss.01686 
-Wulff, Dirk U. & Meier, Dominik S. (2021). text2sdg: Detecting UN Sustainable Development Goals in Text (0.1.0). Zenodo. https://doi.org/10.5281/zenodo.5553980  
