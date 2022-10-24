@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="/data/SDG_detector.png" width="300" height="300"/>
+  <img src="/docs/images/SDG_detector.png" width="300" height="300"/>
 </p>
 
 # SDG detector
