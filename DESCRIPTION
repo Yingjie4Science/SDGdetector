@@ -1,10 +1,10 @@
-Package: findSDGs
-Title: Find SDGs in Text
-Version: 0.0.0.9000
+Package: SDGdetector
+Title: Detect SDGs in Text
+Version: 0.1.0
 Authors@R: c(
       person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre")),
       person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut"))
-Description: Identify 17 Sustainable Development Goals and associated targets in text.
+Description: Identify 17 Sustainable Development Goals and associated 169 targets in text.
 Imports: dplyr, magrittr, stringr
 Suggests: testthat
 Depends: R (>= 3.5.0)
