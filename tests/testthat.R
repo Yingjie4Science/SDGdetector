@@ -1,4 +1,4 @@
 library(testthat)
-library(findSDGs)
+library(SDGdetector)
 
-test_check("findSDGs")
+test_check("SDGdetector")
