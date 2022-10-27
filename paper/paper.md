@@ -1,5 +1,5 @@
 ---
-title: "SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs"
+title: "SDGdetector: A text mining R package for identifying statements aligning with the SDGs"
 tags:
     - Sustainability
     - Sustainable Development Goals (SDGs)
