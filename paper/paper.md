@@ -9,10 +9,10 @@ tags:
 authors:
     - name: Yingjie Li
       orcid: 0000-0002-8401-0649
-      affiliation: 1
+      affiliation: "1, 2"
     - name: Meng Cai
       orcid: 0000-0002-8318-572X
-      affiliation: "2, 3"
+      affiliation: "3, 4"
     - name: Veronica Frans
       orcid: 0000-0002-5634-3956
       affiliation: 1
@@ -25,10 +25,12 @@ authors:
 affiliations:
     - name: Center for Systems Integration and Sustainability, Michigan State University, East Lansing, MI 48823, United States
       index: 1
-    - name: School of Planning, Design and Construction, Michigan State University, East Lansing, MI, 48824, United States
+    - name: Natural Capital Project, Stanford University, Stanford, CA, 94305, United States
       index: 2
+    - name: School of Planning, Design and Construction, Michigan State University, East Lansing, MI, 48824, United States
+      index: 3
     - name: Institute for Traffic Planning and Traffic Engineering, Technical University of Darmstadt, Darmstadt 64287, Germany
-      index: 3  
+      index: 4  
 date: 23 October 2022
 bibliography: paper.bib
 
