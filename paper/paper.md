@@ -1,5 +1,5 @@
 ---
-title: "SDGdetector: A text mining R package for identifying statements aligning with the SDGs"
+title: "SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs"
 tags:
     - Sustainability
     - Sustainable Development Goals (SDGs)
@@ -13,7 +13,7 @@ authors:
     - name: Meng Cai
       orcid: 0000-0002-8318-572X
       affiliation: "3, 4"
-    - name: Veronica Frans
+    - name: Veronica F. Frans
       orcid: 0000-0002-5634-3956
       affiliation: 1
     - name: Yuqian Zhang
@@ -38,7 +38,7 @@ bibliography: paper.bib
 
 # Summary
 
-The global interest in moving towards a sustainable future has grown exponentially at all levels. The United Nations’ Sustainable Development Goals (SDGs) adopted by world leaders in 2015 provided an integrated framework to track progress toward sustainability [@un_global_2019]. Textual data, such as public statements posted on websites, organization reports, and scientific publications, provide a rich source for evaluating the planned and ongoing efforts, as well as achievements towards sustainability. However, no computational tool exists to date that is able to accurately and efficiently identify SDG-related statements from these large amounts of text data. To fill this gap, we developed the **SDGdetector** package in R to map textual data to specific goals and targets under the UN SDG framework for quantitative analysis. This is the first open-source, high-resolution, and high-accuracy analytic package that can identify which and how many SDG goals and targets are declared in any type of text-based data. This package thus enabled a unique way to monitor individuals and organizations’ commitments and efforts towards advancing the 17 SDGs and 169 associated targets. 
+The global interest in moving towards a sustainable future has grown exponentially at all levels. The United Nations’ Sustainable Development Goals (SDGs) adopted by world leaders in 2015 provided an integrated framework to track progress toward sustainability [@un_global_2019]. Textual data, such as public statements posted on websites, organization reports, and scientific publications, provide a rich source for evaluating the planned and ongoing efforts, as well as achievements towards sustainability. However, no computational tool exists to date that is able to accurately and efficiently identify SDG-related statements from these large amounts of text data. To fill this gap, we developed the **SDGdetector** package in R [@r_core_team_r_2021] to map textual data to specific goals and targets under the UN SDG framework for quantitative analysis. This is the first open-source, high-resolution, and high-accuracy analytic package that can identify which and how many SDG goals and targets are declared in any type of text-based data. This package thus enables a unique way to monitor individuals' and organizations' commitments and efforts towards advancing the 17 SDGs and 169 associated targets. 
 
 # Statement of need
 
