@@ -12,8 +12,13 @@ In 2015, leaders worldwide adopted 17 Sustainable Development Goals (SDGs) with 
 
 You can install `SDGdetector` from GitHub as follows:
 
-    #install.packages("devtools")
-    devtools::install_github("Yingjie4Science/SDGdetector")
+``` r
+if (!require("remotes")) {
+  install.packages("remotes")
+}
+
+remotes::install_github("Yingjie4Science/SDGdetector")
+```    
     
 ## Example usage
 
