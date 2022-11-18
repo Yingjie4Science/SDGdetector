@@ -41,10 +41,10 @@ preferred-citation:
     orcid: "https://orcid.org/0000-0001-6344-0087"
   doi: ""
   journal: "Journal of Open Source Software"
-  month: x
+  month: 1
   start: 1 # First page number
   end: 10 # Last page number
   title: "SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs"
-  issue: x
-  volume: x
+  issue: 1
+  volume: 1
   year: 2022
