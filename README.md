@@ -26,6 +26,12 @@ You can install `SDGdetector` from GitHub as follows:
 The SDGdetector **R** package is distributed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 
+## How to cite
+
+Get citation information for `SDGdetector` in R doing
+    `citation(package = 'SDGdetector')`
+
+
 ## Reporting Bugs
 
 *SDGdetector* is distributed as is and without warranty of suitability for application. If you encounter flaws with the software (i.e. bugs) please report the issue. Providing a detailed description of the conditions under which the bug occurred will help to identify the bug. *Use the [Issues tracker](https://github.com/Yingjie4Science/SDGdetector/issues) on GitHub to report issues with the software and to request feature enhancements.* 
