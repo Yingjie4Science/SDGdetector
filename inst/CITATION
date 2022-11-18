@@ -1,0 +1,16 @@
+citHeader("To cite SDGdetector in publications, please use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs",
+  author   = ,
+  journal  = "Journal of Open Source Software",
+  year     = 202x,
+  volume   = x,
+  number   = x,
+  pages    = x,
+  url      = "https://github.com/Yingjie4Science/SDGdetector",
+  textVersion = paste("Li et al. (2022). SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs. Journal of Open Source Software, 0(0), 3 PAGE. https://doi.org/10.xxxxxx/draft."
+
+  )
+)
