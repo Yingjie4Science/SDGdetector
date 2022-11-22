@@ -26,6 +26,17 @@ remotes::install_github("Yingjie4Science/SDGdetector")
     my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product contributes to slowing down climate change'))
     SDGdetector(my_text, my_col)
 
+
+
+## Accuracy Evaluation
+
+This package has achieved high accuracy in detecting SDG-related statements within textual data (> 75%, measured by the alignment between the R package results and four experts' manually-coded results; see this [supplement doc](https://docs.google.com/document/d/1mEjlyu17JZUIphL4VeVrGr4txKBu5jJObzRtJO7G6dg/edit?usp=sharing) for more information.
+
+<p align="center">
+  <img src="/docs/images/Inspection_Accuracy.png" height="300"/>
+</p>
+
+
 ## License
 
 The SDGdetector **R** package is distributed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
