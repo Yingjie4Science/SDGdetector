@@ -35,6 +35,7 @@ This package has achieved high accuracy in detecting SDG-related statements with
 <p align="center">
   <img src="/docs/images/Inspection_Accuracy.png" height="300"/>
 </p>
+The overall accuracy (left) and the accuracy for each round of inspection (right). The red squared dot in the left plot indicates the mean value and the hollow round dots represent the accuracy values reported by each expert.
 
 
 ## License
