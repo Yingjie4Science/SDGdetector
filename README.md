@@ -4,7 +4,7 @@
   <img src="/docs/images/SDG_detector.png" width="300" height="300"/>
 </p>
 
-# SDG detector
+# SDG Detector
 
 In 2015, leaders worldwide adopted 17 Sustainable Development Goals (SDGs) with 169 targets to be achieved by 2030 (https://sdgs.un.org). The framework of SDGs serves as a blueprint for shared prosperity for both people and the earth. `SDGdetector` identifies both direct and indirect expressions of SDGs and associated targets in chunks of text. It takes a data frame with a specified column of text to process as inputs, and outputs a data frame with original columns plus matched SDGs and targets.
 
@@ -20,7 +20,7 @@ if (!require("remotes")) {
 remotes::install_github("Yingjie4Science/SDGdetector")
 ```    
     
-## Example usage
+## Example Usage
 
     library(SDGdetector)
     my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product contributes to slowing down climate change'))
@@ -43,7 +43,7 @@ The overall accuracy (left) and the accuracy for each round of inspection (right
 The SDGdetector **R** package is distributed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 
-## How to cite
+## How to Cite
 
 Get citation information for `SDGdetector` in R doing
     `citation(package = 'SDGdetector')`
