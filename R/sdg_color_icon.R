@@ -64,8 +64,13 @@ sdg_color <- function(x){
 
 
 ## SDG icons  ---------------------------------------------------------------------------------------
+
+### list the icon files
+image_png <- sort(sample(dir("docs/images/SDG-Icons-2019_WEB", full.names = TRUE), 18))
+
+### the function
 sdg_icon <- function(x, res = 200){
-  icon <- magick::image_read(path = image_png[x]) %>% image_scale(., geometry = res)
+  icon <- magick::image_read(path = image_png[x]) %>% magick::image_scale(., geometry = res)
   return(icon)
 }
 # ## test
