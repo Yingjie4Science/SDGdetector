@@ -20,6 +20,8 @@
 #' @importFrom scales
 #' @importFrom magick
 #'
+#' @export
+#'
 #' @examples
 #' my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
 #' contributes to slowing down climate change'))
