@@ -16,6 +16,9 @@
 #' @param x Numeric code for each SDG, ranging from 1 to 17
 #' @param res Resolution of SDG icon. Default: `res = 200` indicates resizing proportionally to 200px
 #'
+#' @importFrom pacman
+#' @importFrom scales
+#' @importFrom magick
 #'
 #' @examples
 #' my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
@@ -23,10 +26,10 @@
 #' SDGdetector(my_text, my_col)
 #' 
 
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load(scales, magick)
-library(scales)
-library(magick)
+# if (!require("pacman")) install.packages("pacman"); library(pacman)
+# pacman::p_load(scales, magick)
+# library(scales)
+# library(magick)
 
 
 ## SDG name ----------------------------------------------------------------------------------------
