@@ -1,16 +1,16 @@
 
 
-## This script provides 
+## This script provides
 ##  * SDG colors
 ##  * SDG icons
-## Reference: 
+## Reference:
 ## UN Guidelines for the use of the SDG logo, including the colour wheel and 17 icons
 ## Link: https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/01/SDG_Guidelines_AUG_2019_Final.pdf (updated in May 2020)
 
 #'
 #' @description
-#' The `sdg_color` function provides the specific color code for each SDG 
-#' The `sdg_icon`  function provides the specific icon for each SDG 
+#' The `sdg_color` function provides the specific color code for each SDG
+#' The `sdg_icon`  function provides the specific icon for each SDG
 #'
 #'
 #' @param x Numeric code for each SDG, ranging from 1 to 17
@@ -24,7 +24,7 @@
 #' my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
 #' contributes to slowing down climate change'))
 #' SDGdetector(my_text, my_col)
-#' 
+#'
 
 # if (!require("pacman")) install.packages("pacman"); library(pacman)
 # pacman::p_load(scales, magick)
@@ -64,11 +64,6 @@ sdg_color <- function(x){
 
 
 ## SDG icons  ---------------------------------------------------------------------------------------
-getwd()
-image_png <- sort(sample(dir("./Data/data_raw/SDG-Icons-2019_WEB", full.names = TRUE), 18))
-image_png
-
-
 sdg_icon <- function(x, res = 200){
   icon <- magick::image_read(path = image_png[x]) %>% image_scale(., geometry = res)
   return(icon)
