@@ -4,17 +4,14 @@
 #' @description
 #' The `detect_region` function can detect country or region names in text for further mapping.
 #'
-#'
 #' @param x   Data frame or a string
 #' @param col Column name for text to be assessed
-#'
-#' @return
 #'
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate select
 #'
+#' @return Returns the tool text outputs.
 #' @export
-#'
 
 
 
