@@ -109,11 +109,11 @@ detect_region <- function(x, col) {
 
 
 ### test
-# x = 'I live in China and USA'
+# x = 'China and USA devoted the largest efforts on solar energy'
 # detect_region(x)
 #
 # x = data.frame(txt_col = c(
-#   'I live in China and USA',
-#   'SDG 1 needs to be enhanced in Congo'
+#   'China and USA devoted the largest efforts on solar energy',
+#   'Congo needs to improve SDG 1 and 2'
 #   ))
 # detect_region(x, col = txt_col)

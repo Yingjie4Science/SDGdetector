@@ -22,11 +22,40 @@ remotes::install_github("Yingjie4Science/SDGdetector")
     
 ## Example Usage
 
-    library(SDGdetector)
-    my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product contributes to slowing down climate change'))
-    SDGdetector(my_text, my_col)
+**To detect SDGs from text**
+``` r
+library(SDGdetector)
+
+### string as input data
+x <- 'our goal is to mitigate climate change, end poverty, and reducing inequality globally'
+SDGdetector(x)
+
+### dataframe as input data
+my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product contributes to slowing down climate change'))
+SDGdetector(my_text, my_col)
+```
+
+**To detect regions/countries in text**
+``` r
+x = 'China and USA devoted the largest efforts on solar energy'
+detect_region(x)
+```
+
+**To use specific SDG colors**
+``` r
+sdg_color(1)
+sdg_color(x = 1:17)
+```
 
 
+**To use specific SDG icons**
+``` r
+sdg_icon(x = 7, res = 300)
+```
+
+**To visualize SDG on map**
+``` r
+```
 
 ## Accuracy Evaluation
 
@@ -45,8 +74,28 @@ The SDGdetector **R** package is distributed under the [GNU General Public Licen
 
 ## How to Cite
 
-Get citation information for `SDGdetector` in R doing
+Get citation information for *SDGdetector* in R doing
     `citation(package = 'SDGdetector')`
+    
+```
+To cite SDGdetector in publications, please use:
+
+  Li et al. (2022). SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs. Journal of Open Source Software, 0(0), 3 PAGE.
+  https://doi.org/10.xxxxxx/draft.
+
+A BibTeX entry for LaTeX users is
+
+  @Article{,
+    title = {SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs},
+    author = {Yingjie Li and Meng Cai and Veronica F. Frans and Yuqian Zhang and Jianguo Liu},
+    journal = {Journal of Open Source Software},
+    year = {2022},
+    volume = {1},
+    number = {1},
+    pages = {3},
+    url = {https://github.com/Yingjie4Science/SDGdetector},
+  }
+```
 
 
 ## Reporting Bugs
