@@ -10,22 +10,17 @@
 #'
 #' @description
 #' The `sdg_color` function provides the specific color code for each SDG
-#' The `sdg_icon`  function provides the specific icon for each SDG
 #'
 #'
 #' @param x Numeric code for each SDG, ranging from 1 to 17
 #' @param res Resolution of SDG icon. Default: `res = 200` indicates resizing proportionally to 200px
 #'
-#' @importFrom pacman
 #' @importFrom scales
-#' @importFrom magick
 #'
 #' @export
 #'
 #' @examples
-#' my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
-#' contributes to slowing down climate change'))
-#' SDGdetector(my_text, my_col)
+#' sdg_color(x = 1:17)
 #'
 
 # if (!require("pacman")) install.packages("pacman"); library(pacman)
@@ -67,8 +62,26 @@ sdg_color <- function(x){
 
 ## SDG icons  ---------------------------------------------------------------------------------------
 
+#'
+#' @description
+#' The `sdg_icon`  function provides the specific icon for each SDG
+#'
+#'
+#' @param x Numeric code for each SDG, ranging from 1 to 17
+#' @param res Resolution of SDG icon. Default: `res = 200` indicates resizing proportionally to 200px
+#'
+#' @importFrom magick
+#'
+#' @export
+#'
+#' @examples
+#' sdg_icon(x = 17, res = 300)
+#'
+#'
 ### list the icon files
-image_png <- sort(sample(dir("docs/images/SDG-Icons-2019_WEB", full.names = TRUE), 18))
+dir  <- dirname(rstudioapi::getSourceEditorContext()$path); dir
+path <- paste0(dirname(dir), "/docs/images/SDG-Icons-2019_WEB")
+image_png <- sort(sample(dir(path, full.names = TRUE), 18))
 
 ### the function
 sdg_icon <- function(x, res = 200){
@@ -77,3 +90,5 @@ sdg_icon <- function(x, res = 200){
 }
 # ## test
 # sdg_icon(x = 17, res = 300)
+
+
