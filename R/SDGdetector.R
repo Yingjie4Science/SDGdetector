@@ -40,11 +40,20 @@ load('data/SDG_keys.RData')
 SDGdetector <- function(x, col) {
 
   ## first, to check the input is a string or a dataframe --------------------------------
-  ## --> if a string
+  ## --> if a string =====================================================================
 
   if (is.data.frame(x) == FALSE) {
     ## -> if not a dataframe
     # print('change/put the string into a dataframe')
+
+    ## check the number of characters in the sentence
+    if(nchar(x) > 750){
+      message(paste0("The length of your input text reached the limit in PCRE, ",
+                     "please split your input text into shorts ones for another try.",
+                     "Idealy, `nchar(x)` should smaller than 750. "))
+    }
+
+
     df <- data.frame(col = x) %>%
       dplyr::mutate(id = dplyr::row_number())
 
@@ -64,7 +73,7 @@ SDGdetector <- function(x, col) {
       code <-  code %>%
         as.data.frame() %>%
 
-        ## at the sentence level - count once if goals/targets are mentioned ---------------
+      ## at the sentence level - count once if goals/targets are mentioned ---------------
       dplyr::mutate(
         match = ifelse(
           grepl(pattern = sdg_i_obj, x = col, ignore.case = T, perl = T), 1, 0))                    %>% ## yes-1 or no-0 if they match
@@ -77,11 +86,23 @@ SDGdetector <- function(x, col) {
     }
 
 
-    ## --> if a dataframe
+    ## --> if a dataframe ================================================================
   } else {
     ##
     df <- x %>%
       dplyr::mutate(id = dplyr::row_number())
+
+    ## check the number of characters in the sentence
+    df_nchar <- df %>%
+      dplyr::mutate(nchr = nchar({{col}})) %>%
+      dplyr::filter(nchr > 750)
+    if(nrow(df_nchar) > 0){
+      message(paste0("The length of your input text reached the limit in PCRE, ",
+                     "please split your input text in rows ",
+                     paste(unique(df_nchar$id), collapse = ", "),
+                     " into shorts ones for another try.",
+                     "Idealy, `nchar(x)` should smaller than 750. "))
+    }
 
     code <- df %>%
       dplyr::mutate(#match   = 0,
@@ -108,7 +129,7 @@ SDGdetector <- function(x, col) {
           sdgs  = ifelse(match > 0, paste0(sdgs, ',', sdg_i_str), sdgs)) %>%
         dplyr::select(-match) %>% ## remove this column
 
-        ## at the sentence level - count the times of all the mentions -------------------
+      ## at the sentence level - count the times of all the mentions -------------------
       # dplyr::mutate(
       #   n       = str_count(string = as.character({{col}}), regex(pattern = sdg_i_obj, ignore_case = T)),
       #   n_total = n_total + n,
