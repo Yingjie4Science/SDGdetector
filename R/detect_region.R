@@ -1,8 +1,5 @@
 
-#' Identify country or region names in text
-#'
-#' @description
-#' The `detect_region` function can detect country or region names in text for further mapping.
+#' Detect country or region names in text for further mapping.
 #'
 #' @param x   Data frame or a string
 #' @param col Column name for text to be assessed
