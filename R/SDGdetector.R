@@ -24,7 +24,7 @@
 #'
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate select relocate last_col
-#' @importFrom stringr str_count
+#' @importFrom stringr str_count str_length
 #'
 #' @export
 #'
@@ -81,8 +81,8 @@ SDGdetector <- function(x, col) {
         dplyr::mutate(
           sdgs  = ifelse(match > 0, paste0(sdgs, ',', sdg_i_str), sdgs)) %>%
         dplyr::select(-match) %>% ## remove this column
-
-      as.data.frame()
+        dplyr::mutate(sdgs = gsub("^,*|(?<=,),|,*$", "", sdgs, perl=T)) %>%
+        as.data.frame()
     }
 
 
@@ -94,7 +94,7 @@ SDGdetector <- function(x, col) {
 
     ## check the number of characters in the sentence
     df_nchar <- df %>%
-      dplyr::mutate(nchr = nchar({{col}})) %>%
+      dplyr::mutate(nchr = stringr::str_length(col)) %>%
       dplyr::filter(nchr > 750)
     if(nrow(df_nchar) > 0){
       message(paste0("The length of your input text reached the limit in PCRE, ",
@@ -136,6 +136,7 @@ SDGdetector <- function(x, col) {
       #   sdgs_n  = ifelse(n > 0, paste0(sdgs_n, ',', sdg_i_str, '-', n), sdgs_n)
       # ) %>%
       # dplyr::select(-n) %>%   ## remove this column
+      dplyr::mutate(sdgs = gsub("^,*|(?<=,),|,*$", "", sdgs, perl=T)) %>%
       as.data.frame()
     }
   }
