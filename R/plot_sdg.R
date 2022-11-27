@@ -48,8 +48,8 @@ sdg_name <- paste0("SDG", seq(1, 17, 1))
 ### country names and code
 githubURL <- ("https://raw.githubusercontent.com/vincentarelbundock/countrycode/main/data/codelist.rda")
 githubURL <- ("https://raw.githubusercontent.com/vincentarelbundock/countrycode/main/data/codelist_panel.rda")
-download.file(url = githubURL, destfile = "codelist_panel.rda", method="curl")
-load(file = "codelist_panel.rda")
+download.file(url = githubURL, destfile = "./data/codelist_panel.rda", method="curl")
+load(file = "./data/codelist_panel.rda")
 country_iso3c_list <- unique(codelist_panel$iso3c)
 
 
