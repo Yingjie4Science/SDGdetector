@@ -12,7 +12,6 @@
 #' chunks of text. It takes a data frame with a specified column of text to process as
 #' inputs and outputs a data frame with original columns plus matched SDGs and targets.
 #'
-#' @name SDGdetector
 #'
 #' @param x   Data frame or a string
 #' @param col Column name for text to be assessed

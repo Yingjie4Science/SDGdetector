@@ -1,7 +1,7 @@
 [![DOI](https://zenodo.org/badge/431620191.svg)](https://zenodo.org/badge/latestdoi/431620191)
 
 <p align="center">
-  <img src="/docs/images/SDG_detector.png" width="300" height="300"/>
+  <img src="./docs/images/SDG_detector.png" width="300" height="300"/>
 </p>
 
 # SDG Detector
@@ -55,14 +55,29 @@ sdg_icon(x = 7, res = 300)
 
 **To visualize SDG on map**
 ``` r
+df <- readr::read_csv('./data/data_example.csv')
+
+# plot SDG in a bar plot
+plot_sdg_bar(data = df, value = value)
 ```
+<p align="left">
+  <img src="./docs/images/example_plots/plot_sdg_bar_example.png" height="300"/>
+</p>
+
+```r
+# plot SDG by country on a map
+plot_sdg_map(data = df, value = value, by_sdg = F)
+```
+<p align="left">
+  <img src="./docs/images/example_plots/plot_sdg_map_example.png" height="300"/>
+</p>
 
 ## Accuracy Evaluation
 
 This package has achieved high accuracy in detecting SDG-related statements within textual data (> 75%, measured by the alignment between the R package results and four experts' manually-coded results; see this [supplement doc](https://docs.google.com/document/d/1mEjlyu17JZUIphL4VeVrGr4txKBu5jJObzRtJO7G6dg/edit?usp=sharing) for more information.
 
-<p align="center">
-  <img src="/docs/images/Inspection_Accuracy.png" height="300"/>
+<p align="left">
+  <img src="./docs/images/Inspection_Accuracy.png" height="300"/>
 </p>
 The overall accuracy (left) and the accuracy for each round of inspection (right). The red squared dot in the left plot indicates the mean value and the hollow round dots represent the accuracy values reported by each expert.
 
