@@ -11,9 +11,9 @@
 #'
 #' @section Analysis functions:
 #'
-#'   \code{\link{plot_sdg_bar}} visualizes the relative frequency of SDG in barplots
+#'   \code{\link{plot_sdg_bar}} visualizes the relative frequency of SDG in bar plots
 #'
-#'   \code{\link{plot_sdg_map}}
+#'   \code{\link{plot_sdg_map}} visualizes the relative frequency of SDG on maps
 #'
 #' @section Datasets:
 #'

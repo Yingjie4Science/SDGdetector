@@ -3,7 +3,8 @@
 #'
 #' @param data  Data frame as the input
 #' @param value The value, e.g., number of SDGs, to be show in the thematic map
-#' @param sdgs  Vector with SDG code to be visualized.
+#' @param sdg   Vector with SDG code to be visualized.
+#' @param country Country that are associated with the SDGs.
 #'
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate select left_join group_by
@@ -224,8 +225,8 @@ plot_sdg_map <- function(data, value, by_sdg = TRUE) {
 #        width = 7, height = 5, units = 'in')
 #
 # # plot_sdg_map(data = df, value = value, by_sdg = T)
-plot_sdg_map(data = df, value = value, by_sdg = F)
-ggsave(filename = './docs/images/example_plots/plot_sdg_map_example.png',
-       plot = last_plot(),
-       width = 7, height = 4, units = 'in'
-       )
+# plot_sdg_map(data = df, value = value, by_sdg = F)
+# ggsave(filename = './docs/images/example_plots/plot_sdg_map_example.png',
+#        plot = last_plot(),
+#        width = 7, height = 4, units = 'in'
+#        )
