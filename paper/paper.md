@@ -117,7 +117,7 @@ df <- readr::read_csv('https://raw.githubusercontent.com/Yingjie4Science/
 plot_sdg_bar(data = df, value = value)
 ```
 <p align="left">
-  <img src="./docs/images/example_plots/plot_sdg_bar_example.png" height="300"/>
+  <img src="../docs/images/example_plots/plot_sdg_bar_example.png" height="300"/>
 </p>
 
 ```r
@@ -125,7 +125,7 @@ plot_sdg_bar(data = df, value = value)
 plot_sdg_map(data = df, value = value, by_sdg = F)
 ```
 <p align="left">
-  <img src="./docs/images/example_plots/plot_sdg_map_example.png" height="300"/>
+  <img src="../docs/images/example_plots/plot_sdg_map_example.png" height="300"/>
 </p>
 
 # Acknowledgements
