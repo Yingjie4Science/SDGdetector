@@ -57,10 +57,7 @@ SDGdetector <- function(x, col) {
       dplyr::mutate(id = dplyr::row_number())
 
     code <- df %>%
-      dplyr::mutate(#match   = 0,
-        sdgs    = '', ## for later use, to append data to this column
-        n_total = 0,  ## count the accumulated mentions
-        sdgs_n  = '') ## ## combine together SDG names and the number of mentions
+      dplyr::mutate(sdgs = '') ## for later use, to append data to this column
 
     for (i in 1:nrow(SDG_keys)){                           ## loop each SDG indicators
       sdg_i_str <- SDG_keys$SDG_id[i] %>% as.character()   ## get the SDG id name
@@ -104,10 +101,7 @@ SDGdetector <- function(x, col) {
     }
 
     code <- df %>%
-      dplyr::mutate(#match   = 0,
-        sdgs    = '', ## for later use, to append data to this column
-        n_total = 0,  ## count the accumulated mentions
-        sdgs_n  = '') ## ## combine together SDG names and the number of mentions
+      dplyr::mutate(sdgs = '') ## for later use, to append data to this column
 
     for (i in 1:nrow(SDG_keys)){                           ## loop each SDG indicators
       sdg_i_str <- SDG_keys$SDG_id[i] %>% as.character()   ## get the SDG id name
@@ -119,22 +113,13 @@ SDGdetector <- function(x, col) {
       code <-  code %>%
         as.data.frame() %>%
 
-        ## at the sentence level - count once if goals/targets are mentioned ---------------
+      ## at the sentence level - count once if goals/targets are mentioned ---------------
       dplyr::mutate(
         match = ifelse(
-          # grepl(pattern = sdg_i_obj, x = col, ignore.case = T, perl = T), 1, 0))                    %>% ## yes-1 or no-0 if they match
           grepl(pattern = sdg_i_obj, x = as.character({{col}}), ignore.case = T, perl = T), 1, 0))  %>% ## yes-1 or no-0 if they match
         dplyr::mutate(
           sdgs  = ifelse(match > 0, paste0(sdgs, ',', sdg_i_str), sdgs)) %>%
         dplyr::select(-match) %>% ## remove this column
-
-      ## at the sentence level - count the times of all the mentions -------------------
-      # dplyr::mutate(
-      #   n       = str_count(string = as.character({{col}}), regex(pattern = sdg_i_obj, ignore_case = T)),
-      #   n_total = n_total + n,
-      #   sdgs_n  = ifelse(n > 0, paste0(sdgs_n, ',', sdg_i_str, '-', n), sdgs_n)
-      # ) %>%
-      # dplyr::select(-n) %>%   ## remove this column
       dplyr::mutate(sdgs = gsub("^,*|(?<=,),|,*$", "", sdgs, perl=T)) %>%
       as.data.frame()
     }
