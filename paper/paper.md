@@ -120,9 +120,9 @@ plot_sdg_bar(data = df, value = value)
   <img src="../docs/images/example_plots/plot_sdg_bar_example.png" height="300"/>
 </p>
 
-![](../docs/images/example_plots/plot_sdg_bar_example.png){:height="300px"}
+![](../docs/images/example_plots/plot_sdg_bar_example.png)
 
-![](../docs/images/example_plots/plot_sdg_bar_example.png =x300)
+<img src="../docs/images/example_plots/plot_sdg_bar_example.png" height="300"/>
 
 ```r
 # plot SDG by country on a map
