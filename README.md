@@ -55,21 +55,19 @@ sdg_color(x = 1:17)
 sdg_icon(x = 7, res = 300)
 ```
 
-<<<<<<< HEAD
-**To visualize SDGs**
-=======
+
 **To visualize SDG on a bar plot**
->>>>>>> 8bd3484920db2b0db586f0a5257da6ed7612bb1f
 ``` r
 df <- readr::read_csv('https://raw.githubusercontent.com/Yingjie4Science/SDGdetector/main/data/data_example.csv')
 
-# plot SDG in a bar plot
+# plot SDG on a bar plot
 plot_sdg_bar(data = df, value = value)
 ```
 <p align="left">
   <img src="./docs/images/example_plots/plot_sdg_bar_example.png" height="300"/>
 </p>
 
+**To visualize SDG on a map**
 ```r
 # plot SDG by country on a map
 plot_sdg_map(data = df, value = value, by_sdg = F)
@@ -80,7 +78,7 @@ plot_sdg_map(data = df, value = value, by_sdg = F)
 
 ## Accuracy Evaluation
 
-This package has achieved high accuracy in detecting SDG-related statements within textual data (> 75%, measured by the alignment between the R package results and four experts' manually-coded results; see this [supplementary document](https://docs.google.com/document/d/1mEjlyu17JZUIphL4VeVrGr4txKBu5jJObzRtJO7G6dg/edit?usp=sharing) for more information.
+This package has achieved high accuracy in detecting SDG-related statements within textual data (> 75%, measured by the alignment between the R package results and four experts' manually-coded results; see this [supplementary document](https://drive.google.com/file/d/1EHUV6Jc3N4A-IshKU4dbxtIqlfj50mzi/view?usp=share_link) for more information.
 
 <p align="left">
   <img src="./docs/images/Inspection_Accuracy.png" height="300"/>
