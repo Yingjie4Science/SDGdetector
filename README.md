@@ -74,7 +74,7 @@ plot_sdg_map(data = df, value = value, by_sdg = F)
 
 ## Accuracy Evaluation
 
-This package has achieved high accuracy in detecting SDG-related statements within textual data (> 75%, measured by the alignment between the R package results and four experts' manually-coded results; see this [supplement doc](https://docs.google.com/document/d/1mEjlyu17JZUIphL4VeVrGr4txKBu5jJObzRtJO7G6dg/edit?usp=sharing) for more information.
+This package has achieved high accuracy in detecting SDG-related statements within textual data (> 75%, measured by the alignment between the R package results and four experts' manually-coded results; see this [supplementary document](https://docs.google.com/document/d/1mEjlyu17JZUIphL4VeVrGr4txKBu5jJObzRtJO7G6dg/edit?usp=sharing) for more information.
 
 <p align="left">
   <img src="./docs/images/Inspection_Accuracy.png" height="300"/>
