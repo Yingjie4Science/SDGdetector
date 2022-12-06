@@ -53,7 +53,7 @@ sdg_color(x = 1:17)
 sdg_icon(x = 7, res = 300)
 ```
 
-**To visualize SDG on map**
+**To visualize SDG on a bar plot**
 ``` r
 df <- readr::read_csv('https://raw.githubusercontent.com/Yingjie4Science/SDGdetector/main/data/data_example.csv')
 
