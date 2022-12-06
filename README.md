@@ -99,13 +99,13 @@ Get citation information for *SDGdetector* in R doing
 ```
 To cite SDGdetector in publications, please use:
 
-  Li et al. (2022). SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs. Journal of Open Source Software, 0(0), 3 PAGE.
+  Li et al. (2022). SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals. Journal of Open Source Software, 0(0), 3 PAGE.
   https://doi.org/10.xxxxxx/draft.
 
 A BibTeX entry for LaTeX users is
 
   @Article{,
-    title = {SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs},
+    title = {SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals},
     author = {Yingjie Li and Meng Cai and Veronica F. Frans and Yuqian Zhang and Jianguo Liu},
     journal = {Journal of Open Source Software},
     year = {2022},
