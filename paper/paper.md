@@ -77,7 +77,8 @@ The package is based on the tidyverse [@wickham_welcome_2019] framework and is a
 library(SDGdetector) 
 
 # a string as the input
-text <- 'our goal is to mitigate climate change, end poverty, and reducing inequality globally'
+text <- 'our goal is to mitigate climate change, end poverty, and reducing 
+  inequality globally'
 SDGdetector(x = text)
 
 # a dataframe as the input
@@ -93,7 +94,9 @@ In addition to the lexical database included in the ***SDGdetector*** package, u
 # A list of terms used to determine whether a sentence relates to SDG efforts
 terms_new <- c("improve", "farmer", "income")
 
-# Use *AND* operator to combine the terms and generate a customized search query (or called a matching pattern); then add the query to the existing lexical database
+# Use *AND* operator to combine the terms and generate a customized search query 
+# (or called a matching pattern); 
+# then add the query to the existing lexical database
 add_sdg_pattern(sdg_id = 'SDG1_2', x = terms_new, operator = 'AND')
 ```
 
@@ -107,7 +110,8 @@ detect_region(x = text)
 (4) Results and visualization. Users can summarize the detected SDG goals and targets by report (or organization), by Goal, and by region. The package provides methods for visualizing the SDG frequency, via its family of *plot_sdg_** functions. For instance, 
 
 ```r
-df <- readr::read_csv('https://raw.githubusercontent.com/Yingjie4Science/SDGdetector/main/data/data_example.csv')
+df <- readr::read_csv('https://raw.githubusercontent.com/Yingjie4Science/
+  SDGdetector/main/data/data_example.csv')
 
 # plot SDG in a bar plot
 plot_sdg_bar(data = df, value = value)
