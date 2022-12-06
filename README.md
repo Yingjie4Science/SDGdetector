@@ -27,12 +27,14 @@ remotes::install_github("Yingjie4Science/SDGdetector")
 library(SDGdetector)
 
 ### string as input data
-x <- 'our goal is to mitigate climate change, end poverty, and reducing inequality globally'
-SDGdetector(x)
+text <- 'our goal is to mitigate climate change, end poverty, and reducing inequality globally'
+SDGdetector(x = text)
 
 ### dataframe as input data
-my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product contributes to slowing down climate change'))
-SDGdetector(my_text, my_col)
+df <- data.frame(text=c(
+  'our goal is to end poverty globally', 
+  'this product contributes to slowing down climate change'))
+SDGdetector(x = df, col = text)
 ```
 
 **To detect regions/countries in text**
@@ -53,7 +55,7 @@ sdg_color(x = 1:17)
 sdg_icon(x = 7, res = 300)
 ```
 
-**To visualize SDG on map**
+**To visualize SDGs**
 ``` r
 df <- readr::read_csv('https://raw.githubusercontent.com/Yingjie4Science/SDGdetector/main/data/data_example.csv')
 
