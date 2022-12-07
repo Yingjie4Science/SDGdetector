@@ -27,7 +27,7 @@ remotes::install_github("Yingjie4Science/SDGdetector")
 library(SDGdetector)
 
 ### string as input data
-text <- 'our goal is to mitigate climate change, end poverty, and reducing inequality globally'
+text <- 'our goal is to mitigate climate change, end poverty, and reduce inequality globally'
 SDGdetector(x = text)
 
 ### dataframe as input data

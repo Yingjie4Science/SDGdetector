@@ -77,7 +77,7 @@ The package is based on the tidyverse [@wickham_welcome_2019] framework and is a
 library(SDGdetector) 
 
 # a string as the input
-text <- 'our goal is to mitigate climate change, end poverty, and reducing 
+text <- 'our goal is to mitigate climate change, end poverty, and reduce 
   inequality globally'
 SDGdetector(x = text)
 
