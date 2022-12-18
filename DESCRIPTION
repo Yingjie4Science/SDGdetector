@@ -1,16 +1,26 @@
 Package: SDGdetector
 Title: Detect SDGs in Text
-Version: 0.1.0
+Version: 2.3.0
 Authors@R: c(
       person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre")),
+      person("Yongze", "Song", email = "yongze.song@outlook.com", role = "aut", 
+             comment = c(ORCID = "0000-0003-3420-9622")),
       person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut"),
       person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut")
       )
 Description: Identify 17 Sustainable Development Goals and associated 169 targets in text.
-Imports: dplyr, magrittr, stringr, scales, magick
-Suggests: testthat
+Imports: dplyr, magrittr, stringr, ggplot2, tidyr, grDevices,
+        rnaturalearth, utils
 Depends: R (>= 3.5.0)
 License: file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
+LazyData: true
+NeedsCompilation: no
+Packaged: 2022-12-17 10:11:03 UTC; 268222h
+Author: Yingjie Li [aut, cre],
+  Yongze Song [aut] (<https://orcid.org/0000-0003-3420-9622>),
+  Meng Cai [aut],
+  Veronica Frans [aut]
+Maintainer: Yingjie Li <yingjieli.edu@gmail.com>

@@ -3,8 +3,11 @@
 \name{SDGdetector}
 \alias{SDGdetector}
 \title{Identify SDGs in text}
+\usage{
+SDGdetector(x, col)
+}
 \arguments{
-\item{df}{Data frame}
+\item{x}{Data frame or a string}
 
 \item{col}{Column name for text to be assessed}
 }
@@ -14,8 +17,7 @@ the number of occurrence of each of the 17 SDGs and one column \code{match_detai
 details of specific targets.
 }
 \description{
-The \code{SDGdetector} function identify 17 Sustainable Development Goals and
-associated targets in text.
+Identify 17 Sustainable Development Goals and associated 169 targets in text.
 }
 \details{
 In 2015, leaders worldwide adopted 17 Sustainable Development Goals (SDGs) with 169
@@ -26,7 +28,8 @@ chunks of text. It takes a data frame with a specified column of text to process
 inputs and outputs a data frame with original columns plus matched SDGs and targets.
 }
 \examples{
-my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
-contributes to slowing down climate change'))
+my_col=c('our goal is to end poverty globally', 'this product
+contributes to slowing down climate change')
+my_text <- data.frame(my_col)
 SDGdetector(my_text, my_col)
 }

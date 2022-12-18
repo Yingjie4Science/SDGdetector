@@ -1,0 +1,4 @@
+SDGdetector     Identify SDGs in text
+detect_region   Detect country or region names in text for further mapping
+plot_sdg_bar    SDG bar plot
+plot_sdg_map    SDG map plot

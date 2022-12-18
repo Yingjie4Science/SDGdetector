@@ -1,5 +1,9 @@
 
-#' Detect country or region names in text for further mapping.
+#' Detect country or region names in text for further mapping
+#'
+#' @description Detect country or region names in text for further mapping.
+#'
+#' @usage detect_region(x, col)
 #'
 #' @param x   Data frame or a string
 #' @param col Column name for text to be assessed
@@ -7,18 +11,22 @@
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate select
 #'
+#' @examples
+#' x <- c("This paper explores the method and results from an independent
+#' evidence based assessment of Australia's progress towards the SDGs",
+#' "Last year alone, the United States experienced 14 separate billion-dollar
+#'  disasters related to climate change")
+#' col <- data.frame(x)
+#' regions <- detect_region(x, col)
+#'
 #' @return Returns the tool text outputs.
 #' @export
 
 
 
-## load name database
-file <- paste0('./data/', 'country_region_names.RData')
-load(file)
-
-
 detect_region <- function(x, col) {
 
+  # data(country_region_names, "country_region_names")
 
   ## --> input = a string ================================================================
   if (is.data.frame(x) == FALSE) {

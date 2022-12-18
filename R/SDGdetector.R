@@ -1,8 +1,9 @@
 #' Identify SDGs in text
 #'
 #' @description
-#' The `SDGdetector` function identify 17 Sustainable Development Goals and
-#' associated 169 targets in text.
+#' Identify 17 Sustainable Development Goals and associated 169 targets in text.
+#'
+#' @usage SDGdetector(x, col)
 #'
 #' @details
 #' In 2015, leaders worldwide adopted 17 Sustainable Development Goals (SDGs) with 169
@@ -22,26 +23,27 @@
 #' details of specific targets.
 #'
 #' @importFrom magrittr %>%
-#' @importFrom dplyr mutate select relocate last_col
+#' @importFrom dplyr mutate select relocate last_col desc
 #' @importFrom stringr str_count str_length
 #'
 #' @export
 #'
 #' @examples
-#' my_text <- data.frame(my_col=c('our goal is to end poverty globally', 'this product
-#' contributes to slowing down climate change'))
+#' my_col=c('our goal is to end poverty globally', 'this product
+#' contributes to slowing down climate change')
+#' my_text <- data.frame(my_col)
 #' SDGdetector(my_text, my_col)
 
 
-# load search terms of SDG targets
-load('data/SDG_keys.RData')
-
 SDGdetector <- function(x, col) {
+  nchr <- sdgs <- id <- NULL
+
+  # data(SDG_keys, "SDG_keys")
 
   ## first, to check the input is a string or a dataframe --------------------------------
   ## --> if a string =====================================================================
 
-  if (is.data.frame(x) == FALSE) {
+  if (!is.data.frame(x)) {
     ## -> if not a dataframe
     # print('change/put the string into a dataframe')
 
