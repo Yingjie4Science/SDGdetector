@@ -28,7 +28,11 @@
 plot_sdg_map <- function(data, sdg = "sdg", value = "value",
                          country = "country", by_sdg = TRUE) {
 
-  k <- which(names(data) %in% c(sdg, value, country))
+  k <- which(names(data) %in% c(
+    deparse(substitute(sdg)),
+    deparse(substitute(value)),
+    deparse(substitute(country))
+    ))
   names(data)[k] <- c("sdg", "value", "country")
 
   sdg_name <- paste0("SDG", seq(1, 17, 1))

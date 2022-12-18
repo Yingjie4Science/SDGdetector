@@ -58,10 +58,11 @@ sdg_icon(x = 7, res = 300)
 
 **To visualize SDG on a bar plot**
 ``` r
-df <- readr::read_csv('https://raw.githubusercontent.com/Yingjie4Science/SDGdetector/main/data/data_example.csv')
+data("sdgstat")
+df <- sdgstat
 
 # plot SDG on a bar plot
-plot_sdg_bar(data = df, value = value)
+plot_sdg_bar(data = df, sdg = SDG, value = Value)
 ```
 <p align="left">
   <img src="./docs/images/example_plots/plot_sdg_bar_example.png" height="300"/>
@@ -70,7 +71,7 @@ plot_sdg_bar(data = df, value = value)
 **To visualize SDG on a map**
 ```r
 # plot SDG by country on a map
-plot_sdg_map(data = df, value = value, by_sdg = F)
+plot_sdg_map(data = df, sdg = SDG, value = Value, country = Country, by_sdg = F)
 ```
 <p align="left">
   <img src="./docs/images/example_plots/plot_sdg_map_example.png" height="300"/>
