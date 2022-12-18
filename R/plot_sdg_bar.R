@@ -23,7 +23,7 @@
 #'
 plot_sdg_bar <- function(data, sdg = "sdg", value = "value") {
 
-  k <- which(names(data) %in% c(sdg, value))
+  k <- which(names(data) %in% c(deparse(substitute(sdg)), deparse(substitute(value))))
   names(data)[k] <- c("sdg", "value")
 
   sdg_name <- paste0("SDG", seq(1, 17, 1))
