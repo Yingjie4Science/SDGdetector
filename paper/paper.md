@@ -110,17 +110,17 @@ detect_region(x = text)
 (4) Results and visualization. Users can summarize the detected SDG goals and targets by report (or organization), by Goal, and by region. The package provides methods for visualizing the SDG frequency, via its family of *plot_sdg_** functions. For instance, 
 
 ```r
-df <- readr::read_csv('https://raw.githubusercontent.com/Yingjie4Science/
-  SDGdetector/main/data/data_example.csv')
+data("sdgstat")
+df <- sdgstat
 
-# plot SDG in a bar plot
-plot_sdg_bar(data = df, value = value)
+# plot SDG on a bar plot
+plot_sdg_bar(data = df, sdg = SDG, value = Value)
 ```
 ![](../docs/images/example_plots/plot_sdg_bar_example.png)
 
 ```r
 # plot SDG by country on a map
-plot_sdg_map(data = df, value = value, by_sdg = F)
+plot_sdg_map(data = df, sdg = SDG, value = Value, country = Country, by_sdg = F)
 ```
 ![](../docs/images/example_plots/plot_sdg_map_example.png)
 
