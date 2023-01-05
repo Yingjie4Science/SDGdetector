@@ -10,12 +10,15 @@ authors:
     - name: Yingjie Li
       orcid: 0000-0002-8401-0649
       affiliation: "1, 2"
-    - name: Meng Cai
-      orcid: 0000-0002-8318-572X
-      affiliation: "3, 4"
+    - name: Yongze Song
+      orcid: 0000-0003-3420-9622
+      affiliation: 3
     - name: Veronica F. Frans
       orcid: 0000-0002-5634-3956
       affiliation: 1
+    - name: Meng Cai
+      orcid: 0000-0002-8318-572X
+      affiliation: "4, 5"
     - name: Yuqian Zhang
       orcid: 0000-0001-7576-2526
       affiliation: 1
@@ -27,10 +30,12 @@ affiliations:
       index: 1
     - name: Natural Capital Project, Stanford University, Stanford, CA, 94305, United States
       index: 2
-    - name: School of Planning, Design and Construction, Michigan State University, East Lansing, MI, 48824, United States
+    - name: School of Design and the Built Environment, Curtin University, Perth, WA, 6102, Australia
       index: 3
+    - name: School of Planning, Design and Construction, Michigan State University, East Lansing, MI, 48824, United States
+      index: 4
     - name: Institute for Traffic Planning and Traffic Engineering, Technical University of Darmstadt, Darmstadt 64287, Germany
-      index: 4  
+      index: 5  
 date: 5 December 2022
 bibliography: paper.bib
 
