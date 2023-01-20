@@ -110,7 +110,7 @@ A BibTeX entry for LaTeX users is
 
   @Article{,
     title = {SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals},
-    author = {Yingjie Li and Meng Cai and Veronica F. Frans and Yuqian Zhang and Jianguo Liu},
+    author = {Yingjie Li and Yongze Song and Veronica F. Frans and Meng Cai and Yuqian Zhang and Jianguo Liu},
     journal = {Journal of Open Source Software},
     year = {2023},
     volume = {1},
