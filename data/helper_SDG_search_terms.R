@@ -3110,7 +3110,7 @@ goals_ls <- paste('SDG', seq(1,17), sep = ''); goals_ls
 goals_df <- data.frame(goal = goals_ls)
 
 
-ls_un <- read.csv('./data/_ls_un_goal_target.csv', stringsAsFactors = F) %>%
+ls_un <- read.csv('_ls_un_goal_target.csv', stringsAsFactors = F) %>%
   dplyr::filter(!is.na(GoalID)) %>%
   tidyr::separate(Targets, c('target_id_un', 'target_desc_un'), sep = ' ', extra = 'merge', remove = T)
 # str(ls_un)
