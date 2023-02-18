@@ -13,7 +13,20 @@ In 2015, leaders worldwide adopted 17 Sustainable Development Goals (SDGs) with 
 
 ## Installation
 
-You can install `SDGdetector` from GitHub as follows:
+There are two ways to install the **SDGdetector** R package.
+
+### 1. CRAN
+
+**SDGdetector** is now available on
+[CRAN](https://CRAN.R-project.org/package=SDGdetector), so you can install it with:
+
+``` r
+install.packages("SDGdetector")
+```
+
+### 2. GitHub
+
+You can alternatively install the development version of **SDGdetector** from [GitHub](https://github.com/Yingjie4Science/SDGdetector) as follows:
 
 ``` r
 if (!require("remotes")) {
