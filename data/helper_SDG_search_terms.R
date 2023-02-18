@@ -3105,21 +3105,19 @@ SDG17_general_y <- lookaround_nearby_n(word_ls1 = temp[1], word_ls2 = temp[2], n
 ## Terms for this type are fairly straightforward and easy to do ...
 
 # source('./Code/helper_UN_SDG_Target_list.R') ## --> ls_un; ls_un_id; goals_ls ## a copy of the code
-library(reshape2)
-library(tidyverse)
 
 goals_ls <- paste('SDG', seq(1,17), sep = ''); goals_ls
 goals_df <- data.frame(goal = goals_ls)
 
 
-ls_un <- read.csv('./Data/data_raw/_ls_un_goal_target.csv', stringsAsFactors = F) %>%
+ls_un <- read.csv('./data/_ls_un_goal_target.csv', stringsAsFactors = F) %>%
   dplyr::filter(!is.na(GoalID)) %>%
   tidyr::separate(Targets, c('target_id_un', 'target_desc_un'), sep = ' ', extra = 'merge', remove = T)
 # str(ls_un)
 
 ls_un_id <- ls_un %>%
   dplyr::select(GoalID, target_id_un) %>%
-  separate(target_id_un, c('target_id_un1', 'target_id_un2'), sep = '\\.', remove = F) %>%
+  tidyr::separate(target_id_un, c('target_id_un1', 'target_id_un2'), sep = '\\.', remove = F) %>%
   dplyr::select(-target_id_un1) %>%
   dplyr::mutate(goalname = paste0('SDG', GoalID),
                 goalname = factor(goalname, levels = goals_ls))
