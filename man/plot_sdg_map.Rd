@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot_sdg_map.R
 \name{plot_sdg_map}
 \alias{plot_sdg_map}
-\title{SDG map plot}
+\title{SDG Map Plot}
 \usage{
 plot_sdg_map(data, sdg = sdg, value = value,
                     country = country, by_sdg = TRUE)

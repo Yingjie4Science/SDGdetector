@@ -1,4 +1,4 @@
-#' SDG map plot
+#' SDG Map Plot
 #' @description SDG map plot
 #'
 #' @usage plot_sdg_map(data, sdg = sdg, value = value,
@@ -29,9 +29,9 @@ plot_sdg_map <- function(data, sdg = "sdg", value = "value",
                          country = "country", by_sdg = TRUE) {
 
   k <- which(names(data) %in% c(
-    deparse(substitute(sdg)),
-    deparse(substitute(value)),
-    deparse(substitute(country))
+    deparse(substitute(SDG)),
+    deparse(substitute(Value)),
+    deparse(substitute(Country))
     ))
   names(data)[k] <- c("sdg", "value", "country")
 

@@ -9,8 +9,17 @@ Authors@R: c(
       person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut")
       )
 Description: Identify 17 Sustainable Development Goals and associated 169 targets in text.
-Imports: dplyr, magrittr, stringr, ggplot2, tidyr, grDevices,
-        rnaturalearth, utils
+Imports: 
+    dplyr,
+    magrittr,
+    stringr,
+    ggplot2,
+    tidyr,
+    grDevices,
+    rnaturalearth,
+    utils,
+    scales,
+    magick
 Depends: R (>= 3.5.0)
 License: file LICENSE
 Encoding: UTF-8
@@ -24,3 +33,6 @@ Author: Yingjie Li [aut, cre],
   Meng Cai [aut],
   Veronica Frans [aut]
 Maintainer: Yingjie Li <yingjieli.edu@gmail.com>
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

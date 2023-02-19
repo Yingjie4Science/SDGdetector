@@ -50,6 +50,50 @@
 
 
 
+#' @title List of Names and ISO Code for Countries
+#'
+#' @name codelist_panel
+#' @format ## `codelist_panel`
+#' A data frame with 28941 rows and 55 columns:
+#' \describe{
+#'   \item{country.name.en}{Country name in English}
+#'   \item{iso2c, iso3c}{2 & 3 letter ISO country codes}
+#'   \item{year}{Year}
+#'   ...
+#' }
+#' @docType data
+#' @source <https://en.wikipedia.org/wiki/List_of_countries_and_territories_by_land_and_maritime_borders>
+"codelist_panel"
+
+
+
+
+#' @title List SDG Icons
+#'
+#' @name sdg_icons
+#' @format \code{sdg_icons}: External pointer of class "magick-image"
+#' @docType data
+#' @source <https://www.un.org/sustainabledevelopment/wp-content/uploads/2019/01/SDG_Guidelines_AUG_2019_Final.pdf>
+"sdg_icons"
+
+
+
+#' @title The Names, ID, and Descriptions of all the 17 SDGs and 169 Targets
+#'
+#' @name list_of_un_goals_targets
+#' @format ## `list_of_un_goals_targets`
+#' A data frame with 169 rows and 3 columns:
+#' \describe{
+#'   \item{GoalID}{The ID of each SDG}
+#'   \item{GoalName}{The name of each SDG}
+#'   \item{target_id_un}{The name of each Target}
+#'   \item{target_desc_un}{The description for each Target}
+#' }
+#' @docType data
+#' @source <https://unstats.un.org/sdgs/indicators/indicators-list/>
+"list_of_un_goals_targets"
+
+
 
 
 

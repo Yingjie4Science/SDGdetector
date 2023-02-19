@@ -23,7 +23,7 @@
 #'
 plot_sdg_bar <- function(data, sdg = "sdg", value = "value") {
 
-  k <- which(names(data) %in% c(deparse(substitute(sdg)), deparse(substitute(value))))
+  k <- which(names(data) %in% c(deparse(substitute(SDG)), deparse(substitute(Value))))
   names(data)[k] <- c("sdg", "value")
 
   sdg_name <- paste0("SDG", seq(1, 17, 1))
@@ -49,7 +49,7 @@ plot_sdg_bar <- function(data, sdg = "sdg", value = "value") {
 
   ## aggregate by SDGs
   data <- data %>%
-    group_by(sdg) %>%
+    dplyr::group_by(sdg) %>%
     dplyr::summarise_at(c("value"), sum, na.rm = TRUE)
 
   color_rgb <-data.frame(R=c(229,221,76, 197,255,38, 252,162,253,221,253,191,63, 10, 86, 0,  25),
@@ -63,6 +63,7 @@ plot_sdg_bar <- function(data, sdg = "sdg", value = "value") {
     color <- color_hex[x]
     return(color)
   }
+
   ## plot
   p1 <- ggplot(data, aes(x = sdg, y = value, fill = sdg)) +
     geom_col(show.legend = F) +
