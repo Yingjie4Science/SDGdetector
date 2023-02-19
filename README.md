@@ -47,10 +47,10 @@ text <- 'our goal is to mitigate climate change, end poverty, and reduce inequal
 SDGdetector(x = text)
 
 ### dataframe as input data
-df <- data.frame(text=c(
+df <- data.frame(col = c(
   'our goal is to end poverty globally', 
   'this product contributes to slowing down climate change'))
-SDGdetector(x = df, col = text)
+SDGdetector(x = df, col = col)
 ```
 
 **To detect regions/countries in text**
