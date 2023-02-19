@@ -1,4 +1,4 @@
-context("detect indirect expressions of SDGs and targets in text")
+context("Detect SDGs and Targets in text")
 
 test_that("Return data frames of correct size", {
   text <- 'our goal is to mitigate climate change, end poverty, and reduce inequality globally'

@@ -1,6 +1,4 @@
 library(testthat)
 library(SDGdetector)
 
-# test_check("SDGdetector")
-
-
+test_check("SDGdetector")
