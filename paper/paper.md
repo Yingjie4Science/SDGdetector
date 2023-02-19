@@ -87,10 +87,10 @@ text <- 'our goal is to mitigate climate change, end poverty, and reduce
 SDGdetector(x = text)
 
 # a dataframe as the input
-df <- data.frame(text = c(
+df <- data.frame(col = c(
   'our goal is to end poverty globally', 
   'this product contributes to slowing down climate change'))
-SDGdetector(x = df, col = text)
+SDGdetector(x = df, col = col)
 ```
 
 In addition to the lexical database included in the ***SDGdetector*** package, users can also add customized search queries to the lexical database. 
