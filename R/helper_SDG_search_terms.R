@@ -26,18 +26,38 @@
 # AND --> ,
 
 
-library(dplyr)
 
 
-## a vector (v) of terms to be concatenated by `AND`
-
+#' Use `AND` to Concatenate a Vector of Terms
+#'
+#' @param v a vector of characters
+#'
+#' @importFrom magrittr %>%
+#'
+#' @return A character
+#' @export
+#'
+#' @examples
+#' words <- c('apple', 'bean', 'food')
+#' func_AND_vector(v= words)
 func_AND_vector <- function(v){
   pat <- paste0("(?=.*(?:", v, "))", collapse="")
   return(pat)
 }
 
 
-## a vector (v) of terms to be concatenated by `OR`
+#' Use `OR` to Concatenate a Vector of Terms
+#'
+#' @param v a vector of characters
+#'
+#' @importFrom magrittr %>%
+#'
+#' @return A character
+#' @export
+#'
+#' @examples
+#' words <- c('apple', 'bean', 'food')
+#' func_AND_vector(v= words)
 func_OR_vector <- function(v){
   pat <- paste0(v, collapse = "|")
   pat <- paste0("(", pat, ")")
@@ -92,18 +112,26 @@ func_to_exclude_terms <- function(which_sdg_term, terms_to_exclude) {
 condition1 <- "\\s"                 ## a space after the 1st word
 condition2 <- "(?:\\w+\\s)"         ## a word character with a space after it
 
+#' @title Look Around
+#'
+#' @description Look around to match pattern in a sentence
+#'
+#' @param word_ls1 is a string, which includes a list of words connected by "|" that indicates 'OR'
+#' @param word_ls2 is a string, which includes a list of words connected by "|" that indicates 'OR'
+#' @param n        is a number, indicates the number of words to look around
+#' @param exclude  is a vector, including a list of words to be excluded from match
+#' @param third_AND_string similar to word_ls1 or word_ls2, it is a string that includes a list of words connected by "|" that indicates 'OR'
+#'
+#' @importFrom magrittr %>%
+#'
+#' @return A regex string
+#' @export
+#'
+#' @examples
+#' con1 <- c('apple', 'bean', 'food')
+#' con2 <- c('big', 'delicious')
+#' lookaround_nearby_n(word_ls1 = con1, word_ls2 = con2, n = 2, exclude = "", third_AND_string = "")
 lookaround_nearby_n <- function(word_ls1, word_ls2, n, exclude = "", third_AND_string = "") {
-
-  #'@title Look around
-  #'@description Look around to match pattern in a sentence
-  #'@author Yingjie Li
-  #'
-  #'@param word_ls1 is a string, which includes a list of words connected by "|" that indicates 'OR'
-  #'@param word_ls2 is a string, which includes a list of words connected by "|" that indicates 'OR'
-  #'@param n        is a number, indicates the number of words to look around
-  #'@param exclude  is a vector, including a list of words to be excluded from match
-  #'@param third_AND_string similar to word_ls1 or word_ls2, it is a string that includes a list of words connected by "|" that indicates 'OR'
-
   pat1 <- paste0(
     paste0('(?:', word_ls1, ')'),  ## the 1st word list
     condition1,                    ## a space after the 1st word
@@ -299,7 +327,8 @@ financial_exclude_ls =
         "Financial Times|financial press|financial result\\S*|financial instrument\\S*|Financial Review\\S*",
         "financial assumption\\S*|finance corporation\\S*",
         sep = "|")
-financial_exclude_ls <- strsplit(x = financial_exclude_ls, split = "\\|") %>% unlist()
+financial_exclude_ls <- strsplit(x = financial_exclude_ls, split = "\\|")
+financial_exclude_ls <- unlist(financial_exclude_ls)
 
 
 ### support_ls ----
@@ -1253,7 +1282,8 @@ SDG7_2_z = c(paste("fossil.?fuel.?|fossil.?gas|\\bcoal\\b|\\bcoals\\b|petrol|nat
 
 ### Option 2: to use look around function ----
 temp <- SDG7_2_z
-ex <- strsplit(x = "year end|coal price\\S*|coal cost\\S*", split = "\\|") %>% unlist()
+ex <- strsplit(x = "year end|coal price\\S*|coal cost\\S*", split = "\\|")
+ex <- unlist(ex)
 SDG7_2_z <- lookaround_nearby_n(word_ls1 = temp[1], word_ls2 = temp[2], n = 4, exclude = ex, third_AND_string = temp[3])
 
 
@@ -1417,7 +1447,9 @@ temp <- SDG8_5_x3
 ### Option 1
 # SDG8_5_x3 <- func_AND_plus(SDG8_5_x3)
 ### Option 2 ----
-ex_ls <- "instalment\\S*|retained earning\\S*|pay.?out|payable" %>% strsplit(., split = "\\|") %>% unlist()
+ex_ls <- "instalment\\S*|retained earning\\S*|pay.?out|payable"
+ex_ls <- strsplit(ex_ls, split = "\\|")
+ex_ls <- unlist(ex_ls)
 SDG8_5_x3 <- lookaround_nearby_n(word_ls1 = temp[1], word_ls2 = temp[2], n = 4, exclude = ex_ls)
 
 
@@ -1654,7 +1686,9 @@ SDG9_5_x = c("technolog\\S*|innov\\S*|\\binvention|research\\S*",
                    finance_ls,
                    sep = "|"))
 temp <- SDG9_5_x
-w_ex <- "incremental cost|Technology Development Zone|COMBINED MANAGEMENT REPORT" %>% strsplit(., split = "\\|") %>% unlist()
+w_ex <- "incremental cost|Technology Development Zone|COMBINED MANAGEMENT REPORT"
+w_ex <- strsplit(w_ex, split = "\\|")
+w_ex <- unlist(w_ex)
 SDG9_5_x <- lookaround_nearby_n(word_ls1 = temp[1], word_ls2 = temp[2], n = 6, exclude = w_ex, third_AND_string = temp[3])
 
 
@@ -1663,7 +1697,8 @@ SDG9_5_y = c(paste("scientific research|Researcher.?|scientist.?|\\bscholar.?\\b
                    "\\bR&D\\b|\\bR & D\\b|\\bR-D\\b|\\bRTD\\b|\\bR\\+D\\b", sep = "|"),
              paste("support.?", increase_ls, sep = "|"))
 temp <- SDG9_5_y
-ex_ls <- "Research Network|Research Alliance" %>% strsplit(., split = "\\|") %>% unlist()
+ex_ls <- "Research Network|Research Alliance"
+ex_ls <- strsplit(ex_ls, split = "\\|") %>% unlist()
 SDG9_5_y <- lookaround_nearby_n(word_ls1 = temp[1], word_ls2 = temp[2], n = 8, exclude = ex_ls)
 
 
@@ -3110,10 +3145,14 @@ goals_ls <- paste('SDG', seq(1,17), sep = ''); goals_ls
 goals_df <- data.frame(goal = goals_ls)
 
 
-ls_un <- read.csv('_ls_un_goal_target.csv', stringsAsFactors = F) %>%
-  dplyr::filter(!is.na(GoalID)) %>%
-  tidyr::separate(Targets, c('target_id_un', 'target_desc_un'), sep = ' ', extra = 'merge', remove = T)
+# ls_un <- read.csv('./data/_ls_un_goal_target.csv', stringsAsFactors = F) %>%
+#   dplyr::filter(!is.na(GoalID)) %>%
+#   tidyr::separate(Targets, c('target_id_un', 'target_desc_un'), sep = ' ', extra = 'merge', remove = T)
 # str(ls_un)
+
+#load the rda file
+load(file = "./data/list_of_un_goals_targets.rda")
+ls_un <- list_of_un_goals_targets
 
 ls_un_id <- ls_un %>%
   dplyr::select(GoalID, target_id_un) %>%
@@ -3128,7 +3167,7 @@ ls_un_id <- ls_un %>%
 
 # goal_ls1 <- data.frame(term = goals_ls)
 # goal_ls2 <- data.frame(term = paste0('SDG ', seq(1, 17)))
-# goal_ls3 <- ls_un %>% distinct(GoalName) %>% dplyr::rename(term = GoalName)
+# goal_ls3 <- ls_un %>% dplyr::distinct(GoalName) %>% dplyr::rename(term = GoalName)
 # goal_ls <- rbind(goal_ls1, goal_ls2, goal_ls3)
 
 
@@ -3144,7 +3183,7 @@ goal_ls_x <- paste0(
 )
 
 ## 1.2 get a list of SDG descriptions for each Goal
-goal_ls_y <- ls_un %>% distinct(GoalName)
+goal_ls_y <- ls_un %>% dplyr::distinct(GoalName)
 goal_ls_y <- goal_ls_y$GoalName
 
 ## 1.3 put 1 and 2 together
@@ -3159,7 +3198,7 @@ goal_keys <- data.frame(SDG_id = paste0('SDG', seq(1, 17), '_general'),
 ## Target level ------------------------------------------------------------------------------------
 
 ### get a list of target ids
-targ_df  <- ls_un %>% distinct(target_id_un)
+targ_df  <- ls_un %>% dplyr::distinct(target_id_un)
 targ_ids <- targ_df$target_id_un; targ_ids
 targ_ids_ <- gsub('\\.', '\\\\.', targ_ids); targ_ids_ ## '.' can be matched with any character
 
