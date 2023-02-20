@@ -88,6 +88,7 @@ SDGdetector <- function(x, col) {
   } else {
     ##
     df <- x %>%
+      dplyr::rename(col = {{col}}) %>%
       dplyr::mutate(id = dplyr::row_number())
 
     ## check the number of characters in the sentence
