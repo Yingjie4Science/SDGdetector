@@ -119,7 +119,7 @@ SDGdetector <- function(x, col) {
       ## at the sentence level - count once if goals/targets are mentioned ---------------
       dplyr::mutate(
         match = ifelse(
-          grepl(pattern = sdg_i_obj, x = as.character({{col}}), ignore.case = T, perl = T), 1, 0))  %>% ## yes-1 or no-0 if they match
+          grepl(pattern = sdg_i_obj, x = as.character(col), ignore.case = T, perl = T), 1, 0))  %>% ## yes-1 or no-0 if they match
         dplyr::mutate(
           sdgs  = ifelse(match > 0, paste0(sdgs, ',', sdg_i_str), sdgs)) %>%
         dplyr::select(-match) %>% ## remove this column
