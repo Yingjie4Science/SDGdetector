@@ -1,12 +1,15 @@
 Package: SDGdetector
-Title: Detect SDGs in Text
-Version: 2.3.0
+Title: Detect SDGs and Targets in Text
+Version: 2.7.1
 Authors@R: c(
-      person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre")),
+      person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre"),
+             comment = c(ORCID = "0000-0002-8401-0649")),
       person("Yongze", "Song", email = "yongze.song@outlook.com", role = "aut", 
              comment = c(ORCID = "0000-0003-3420-9622")),
+      person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut"),
       person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut"),
-      person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut")
+      person("Yuqian", "Zhang", email = "zhan1364@msu.edu", role = "aut"),
+      person("Jianguo", "Liu", email = "liuji@msu.edu", role = "aut"),
       )
 Description: Identify 17 Sustainable Development Goals and associated 169 targets in text.
 Imports: 
@@ -28,10 +31,12 @@ RoxygenNote: 7.2.3
 LazyData: true
 NeedsCompilation: no
 Packaged: 2022-12-17 10:11:03 UTC; 268222h
-Author: Yingjie Li [aut, cre],
+Author: Yingjie Li [aut, cre] (<https://orcid.org/0000-0002-8401-0649>),
   Yongze Song [aut] (<https://orcid.org/0000-0003-3420-9622>),
+  Veronica Frans [aut],
   Meng Cai [aut],
-  Veronica Frans [aut]
+  Yuqian Zhang [aut],
+  Jianguo Liu [aut]
 Maintainer: Yingjie Li <yingjieli.edu@gmail.com>
 Suggests: 
     testthat (>= 3.0.0)
