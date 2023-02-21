@@ -2,10 +2,8 @@ Package: SDGdetector
 Title: Detect SDGs and Targets in Text
 Version: 2.7.1
 Authors@R: c(
-      person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre"),
-             comment = c(ORCID = "0000-0002-8401-0649")),
-      person("Yongze", "Song", email = "yongze.song@outlook.com", role = "aut", 
-             comment = c(ORCID = "0000-0003-3420-9622")),
+      person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-8401-0649")),
+      person("Yongze", "Song", email = "yongze.song@outlook.com", role = "aut", comment = c(ORCID = "0000-0003-3420-9622")),
       person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut"),
       person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut"),
       person("Yuqian", "Zhang", email = "zhan1364@msu.edu", role = "aut"),
