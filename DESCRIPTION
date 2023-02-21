@@ -29,13 +29,6 @@ RoxygenNote: 7.2.3
 LazyData: true
 NeedsCompilation: no
 Packaged: 2022-12-17 10:11:03 UTC; 268222h
-Author: Yingjie Li [aut, cre] (<https://orcid.org/0000-0002-8401-0649>),
-  Yongze Song [aut] (<https://orcid.org/0000-0003-3420-9622>),
-  Veronica Frans [aut],
-  Meng Cai [aut],
-  Yuqian Zhang [aut],
-  Jianguo Liu [aut]
-Maintainer: Yingjie Li <yingjieli.edu@gmail.com>
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
