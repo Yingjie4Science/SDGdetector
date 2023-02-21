@@ -7,7 +7,7 @@ Authors@R: c(
       person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut"),
       person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut"),
       person("Yuqian", "Zhang", email = "zhan1364@msu.edu", role = "aut"),
-      person("Jianguo", "Liu", email = "liuji@msu.edu", role = "aut"),
+      person("Jianguo", "Liu", email = "liuji@msu.edu", role = "aut")
       )
 Description: Identify 17 Sustainable Development Goals and associated 169 targets in text.
 Imports: 
