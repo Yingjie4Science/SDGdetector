@@ -420,7 +420,7 @@ developing_country_name_ls = paste(
   "Aruba|Afghanistan|Angola|Anguilla|Albania|United Arab Emirates|Argentina|Armenia|American Samoa",
   "French Southern Territories|Antigua and Barbuda|Azerbaijan|Burundi|Benin|Burkina Faso|Bangladesh|Bahrain|Bahamas",
   "Bosnia and Herzegovina|Belarus|Belize|Bolivia|Brazil|Barbados|Brunei Darussalam|Bhutan|Botswana|Central African Republic",
-  "Chile|China|C.?te d.?Ivoire|Cameroon|Congo\\b|Cook Islands|Colombia|Comoros|Cabo Verde|Costa Rica|\\bCuba\\b|Curaçao|Cayman Islands",
+  "Chile|China|C.?te d.?Ivoire|Cameroon|Congo\\b|Cook Islands|Colombia|Comoros|Cabo Verde|Costa Rica|\\bCuba\\b|Cura.?ao|Cayman Islands",
   "Cyprus|Cyprus|Djibouti|Dominica|Dominican Republic|Algeria|Ecuador|Egypt|Eritrea|Western Sahara|Ethiopia|Fiji|Micronesia",
   "Gabon|Georgia|Ghana|Guinea|Gambia|Guinea.?Bissau|Equatorial Guinea|Grenada|Guatemala|Guam|Guyana|Heard Island and McDonald Islands",
   "Honduras|Haiti|Indonesia|\\bIndia\\b|\\bIran\\b|\\bIraq\\b|Jamaica|Jordan|Kazakhstan|Kenya|Kyrgyzstan|Cambodia|Kiribati|Saint Kitts and Nevis|Kuwait|\\bLao.?\\b",
@@ -2008,7 +2008,7 @@ SDG11_6_y = "waste generat\\S*|waste manag\\S*|waste collected|waste controlled|
 
 SDG11_7_x = c("safe|secure|inclusi\\S*|accessible|available|reachable|\\bgreen\\b|\\bpublic|\\bnatur\\S*",
               "\\bspace.?\\b|bikeway")
-## -> “area” is removed to avoid noise
+## -> 'area' is removed to avoid noise
 SDG11_7_y = c("physical|sexual",
               "harass\\S*",
               paste(urban_ls, "public space.?|Work.?place.?", sep = "|"))
@@ -2298,7 +2298,7 @@ climate_ls = paste("\\bclimat\\S*|global change|Global dimming|global environmen
 climate_good_ls = paste(
   "\\bCOP\\b|\\bCOP.?\\d+|\\bIPCC\\b|\\bUNFCC\\b|Paris Agreement\\S*|Paris Climate Agreement.?|Montreal Protocol",
   "nationally determined contribution.?|national adaptation plan.?|Rio Convention.?",
-  "1\\.5.?°C|2.?°C|1\\.5 degrees Celsius|2 degrees Fahrenheit\\S*|two degrees Celsius|net.?zero",
+  "1\\.5.?C|2.?C|1\\.5 degrees Celsius|2 degrees Fahrenheit\\S*|two degrees Celsius|net.?zero",
   "negative emission\\S*|Carbon Neutral|carbon sink\\S*|Carbon negative",
   sep = "|")
 
@@ -3162,8 +3162,8 @@ ls_un_id <- ls_un %>%
                 goalname = factor(goalname, levels = goals_ls))
 
 ## Goal level -----------------
-# SDG1	 = (‘SDG 1\\b’|’SDG1\\b’|Goal 1\\b|Goal1\\b)
-# SDG1_1 = (‘SDG 1.1\\b’|’SDG1.1\\b’)
+# SDG1	 = ('SDG 1\\b'|'SDG1\\b'|Goal 1\\b|Goal1\\b)
+# SDG1_1 = ('SDG 1.1\\b'|'SDG1.1\\b')
 
 # goal_ls1 <- data.frame(term = goals_ls)
 # goal_ls2 <- data.frame(term = paste0('SDG ', seq(1, 17)))
