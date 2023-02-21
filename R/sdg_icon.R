@@ -34,7 +34,8 @@ sdg_icon <- function(x, res = 200){
 
   ## --- approach 4
   image_pngs <- list.files(system.file('extdata', package = 'SDGdetector'), pattern = '^E-WEB-Goal', full.names = TRUE)
-  icon <- magick::image_read(path = image_pngs[x]) %>% magick::image_scale(., geometry = res)
+  icon <- magick::image_read(path = image_pngs[x])
+  icon <- magick::image_scale(image = icon, geometry = res)
 
   return(icon)
 }
