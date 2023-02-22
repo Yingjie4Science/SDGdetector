@@ -1,7 +1,7 @@
 citHeader("To cite SDGdetector in publications use:")
 
 bibentry(
-  entry    = "Article",
+  bibtype    = "Article",
   title    = "SDGdetector: an R-based text mining tool for quantifying the efforts toward SDGs",
   author   = c(
       person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-8401-0649")),
