@@ -10,6 +10,8 @@ SDGdetector(x, col)
 \item{x}{Data frame or a string}
 
 \item{col}{Column name for text to be assessed}
+
+\item{quiet}{Logical. Suppress info message}
 }
 \value{
 Data frame with the same information as \code{df} and 18 extra columns: 17 columns marking
@@ -28,8 +30,8 @@ chunks of text. It takes a data frame with a specified column of text to process
 inputs and outputs a data frame with original columns plus matched SDGs and targets.
 }
 \examples{
-my_col=c('our goal is to end poverty globally', 'this product
-contributes to slowing down climate change')
+my_col <- c("our goal is to end poverty globally", "this product
+contributes to slowing down climate change")
 my_text <- data.frame(my_col)
 SDGdetector(my_text, my_col)
 }

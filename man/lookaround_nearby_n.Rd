@@ -15,7 +15,8 @@ lookaround_nearby_n(word_ls1, word_ls2, n, exclude = "", third_AND_string = "")
 
 \item{exclude}{is a vector, including a list of words to be excluded from match}
 
-\item{third_AND_string}{similar to word_ls1 or word_ls2, it is a string that includes a list of words connected by "|" that indicates 'OR'}
+\item{third_AND_string}{similar to word_ls1 or word_ls2, it is a string that includes
+a list of words connected by "|" that indicates 'OR'}
 }
 \value{
 A regex string

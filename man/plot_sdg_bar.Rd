@@ -12,6 +12,8 @@ plot_sdg_bar(data, sdg = sdg, value = value)
 \item{sdg}{Vector with SDG code to be visualized.}
 
 \item{value}{The value, e.g., number of SDGs, to be show in the thematic map}
+
+\item{quiet}{Logical. Suppress info message}
 }
 \value{
 Returns the tool text outputs.

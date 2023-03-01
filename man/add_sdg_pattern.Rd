@@ -4,7 +4,7 @@
 \alias{add_sdg_pattern}
 \title{Users Can Add Customized Patterns for Each SDG or Target}
 \usage{
-add_sdg_pattern(sdg_id, x, operator = "AND")
+add_sdg_pattern(sdg_id, x, operator = "AND", quiet = FALSE)
 }
 \arguments{
 \item{sdg_id}{SDG Goal's ID or Target's ID, in the format of 'SDGx_y', e.g., SDG1_1, SDG2_general}
@@ -12,6 +12,8 @@ add_sdg_pattern(sdg_id, x, operator = "AND")
 \item{x}{A vector of strings}
 
 \item{operator}{'AND', 'OR' to combine a vector of keywords for identifying SDG Goals or Targets.}
+
+\item{quiet}{Logical. Suppress info message}
 }
 \value{
 A regerx string

@@ -26,7 +26,9 @@ SDG map plot
 }
 \examples{
 data("sdgstat")
-plot_sdg_map(sdgstat, sdg = "SDG", value = "Value",
-             country = "Country", by_sdg = FALSE)
+plot_sdg_map(sdgstat,
+  sdg = "SDG", value = "Value",
+  country = "Country", by_sdg = FALSE
+)
 
 }
