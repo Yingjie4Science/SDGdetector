@@ -23,7 +23,6 @@
 #' @export
 #'
 plot_sdg_bar <- function(data, sdg = "sdg", value = "value", quiet = FALSE) {
-
   k <- which(names(data) %in% c(deparse(substitute(SDG)), deparse(substitute(Value))))
   names(data)[k] <- c("sdg", "value")
 
@@ -38,13 +37,14 @@ plot_sdg_bar <- function(data, sdg = "sdg", value = "value", quiet = FALSE) {
     dplyr::filter(sdg %in% sdg_name) %>%
     dplyr::mutate(
       ## remove extra spaces and punctuation from the text of SDG names
-      sdg = gsub(' ', '', sdg),
-      sdg = gsub('[[:punct:] ]+',' ', sdg))
+      sdg = gsub(" ", "", sdg),
+      sdg = gsub("[[:punct:] ]+", " ", sdg)
+    )
 
   ## check values in the `sdg` column
   sdg_column_unique <- unique(data$sdg)
-  if(any(!sdg_column_unique %in%sdg_name)){
-    message(paste0("sdg names must be in the format of ",  sdg_name))
+  if (any(!sdg_column_unique %in% sdg_name)) {
+    message(paste0("sdg names must be in the format of ", sdg_name))
   }
 
 
@@ -53,14 +53,16 @@ plot_sdg_bar <- function(data, sdg = "sdg", value = "value", quiet = FALSE) {
     dplyr::group_by(sdg) %>%
     dplyr::summarise_at(c("value"), sum, na.rm = TRUE)
 
-  color_rgb <-data.frame(R=c(229,221,76, 197,255,38, 252,162,253,221,253,191,63, 10, 86, 0,  25),
-                         G=c(36, 166,159,25, 58, 189,195,25, 105,19, 157,139,126,141,192,104,72),
-                         B=c(59, 58, 56, 45, 33, 226,11, 66, 37, 103,36, 46, 68, 217,43, 157,106))
+  color_rgb <- data.frame(
+    R = c(229, 221, 76, 197, 255, 38, 252, 162, 253, 221, 253, 191, 63, 10, 86, 0, 25),
+    G = c(36, 166, 159, 25, 58, 189, 195, 25, 105, 19, 157, 139, 126, 141, 192, 104, 72),
+    B = c(59, 58, 56, 45, 33, 226, 11, 66, 37, 103, 36, 46, 68, 217, 43, 157, 106)
+  )
 
   ### HEX
   color_hex <- rgb(color_rgb, maxColorValue = 255)
   names(color_hex) <- sdg_name
-  sdg_color <- function(x){
+  sdg_color <- function(x) {
     color <- color_hex[x]
     return(color)
   }
@@ -73,7 +75,8 @@ plot_sdg_bar <- function(data, sdg = "sdg", value = "value", quiet = FALSE) {
     theme(
       panel.grid.minor = ggplot2::element_blank(),
       axis.text.x = ggplot2::element_text(angle = 45, hjust = 1),
-      axis.title.x = ggplot2::element_blank())
+      axis.title.x = ggplot2::element_blank()
+    )
 
 
   return(p1)

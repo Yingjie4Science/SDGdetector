@@ -19,20 +19,21 @@
 #'
 #' @examples
 #' data("sdgstat")
-#' plot_sdg_map(sdgstat, sdg = "SDG", value = "Value",
-#'              country = "Country", by_sdg = FALSE)
+#' plot_sdg_map(sdgstat,
+#'   sdg = "SDG", value = "Value",
+#'   country = "Country", by_sdg = FALSE
+#' )
 #'
 #' @return Returns the tool text outputs.
 #' @export
 #'
 plot_sdg_map <- function(data, sdg = "sdg", value = "value",
                          country = "country", by_sdg = TRUE) {
-
   k <- which(names(data) %in% c(
     deparse(substitute(SDG)),
     deparse(substitute(Value)),
     deparse(substitute(Country))
-    ))
+  ))
   names(data)[k] <- c("sdg", "value", "country")
 
   sdg_name <- paste0("SDG", seq(1, 17, 1))
@@ -42,7 +43,7 @@ plot_sdg_map <- function(data, sdg = "sdg", value = "value",
   world <- ne_countries(scale = "small", returnclass = "sf")
 
 
-  if(by_sdg == TRUE) {
+  if (by_sdg == TRUE) {
     d1 <- data %>%
       group_by(country, sdg) %>%
       dplyr::summarise_at(c("value"), sum, na.rm = TRUE) %>%
@@ -53,7 +54,7 @@ plot_sdg_map <- function(data, sdg = "sdg", value = "value",
     p1 <- ggplot(wd) +
       geom_sf(data = world) +
       geom_sf(aes(fill = value)) +
-      scale_fill_distiller(palette = 'YlGnBu', direction = 1, na.value = "gray80") +
+      scale_fill_distiller(palette = "YlGnBu", direction = 1, na.value = "gray80") +
       facet_wrap(~sdg) +
       theme_bw()
   } else {
@@ -67,13 +68,11 @@ plot_sdg_map <- function(data, sdg = "sdg", value = "value",
     p1 <- ggplot(wd) +
       geom_sf(data = world) +
       geom_sf(aes(fill = value)) +
-      scale_fill_distiller(palette = 'YlGnBu', direction = 1, na.value = "gray80") +
+      scale_fill_distiller(palette = "YlGnBu", direction = 1, na.value = "gray80") +
       theme_bw()
-
   }
 
 
 
   return(p1)
-
 }

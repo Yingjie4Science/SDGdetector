@@ -40,42 +40,45 @@ sdg_id_list <- unique(SDG_keys$SDG_id)
 #' terms_new <- c("improve", "farmer", "income")
 #' add_sdg_pattern(sdg_id = 'SDG1_2', x = terms_new, operator = 'AND')
 #'
-add_sdg_pattern <- function(sdg_id, x, operator = 'AND', quiet = FALSE) {
+add_sdg_pattern <-
+  function(sdg_id,
+           x,
+           operator = 'AND',
+           quiet = FALSE) {
+    ## check the format of `sdg_id`
+    if (any(!sdg_id %in% sdg_id_list)) {
+      stop(
+        paste0(
+          "sdg_id names must be in the right format that similar to ",
+          "'SDG1_1', 'SDG12_3', or 'SDG2_general'"
+        )
+      )
+    }
 
-  ## check the format of `sdg_id`
-  if(any(!sdg_id %in% sdg_id_list)){
-    stop(paste0("sdg_id names must be in the right format that similar to ",
-                   "'SDG1_1', 'SDG12_3', or 'SDG2_general'"))
+
+    if (length(x) < 2) {
+      new_pattern <- func_OR_vector(x)
+    } else if (length(x) > 1 & operator == 'AND') {
+      new_pattern <- func_AND_vector(x)
+    } else if (length(x) > 1 & operator == 'OR') {
+      new_pattern <- func_OR_vector(x)
+    }
+
+    new_pattern_df <- data.frame(SDG_id       = sdg_id,
+                                 SDG_keywords = new_pattern,
+                                 match_tpye   = 'user_defined')
+
+    cat('New pattern for detecting SDGs was added: \n')
+    print(new_pattern_df)
+
+    ## update the search term database
+    SDG_keys <- rbind(SDG_keys,
+                      new_pattern_df) %>%
+      dplyr::distinct_all()
+
+    # return(SDG_keys)
+    invisible(SDG_keys)
   }
-
-
-  if (length(x) < 2) {
-    new_pattern <- func_OR_vector(x)
-  } else if (length(x) > 1 & operator == 'AND') {
-    new_pattern <- func_AND_vector(x)
-  } else if (length(x) > 1 & operator == 'OR') {
-    new_pattern <- func_OR_vector(x)
-  }
-
-  new_pattern_df <- data.frame(
-    SDG_id       = sdg_id,
-    SDG_keywords = new_pattern,
-    match_tpye   = 'user_defined'
-  )
-
-  cat('New pattern for detecting SDGs was added: \n')
-  print(new_pattern_df)
-
-  ## update the search term database
-  SDG_keys <- rbind(
-    SDG_keys,
-    new_pattern_df
-  ) %>%
-    dplyr::distinct_all()
-
-  # return(SDG_keys)
-  invisible(SDG_keys)
-}
 
 
 ## test ----------------------------------------------------------------------------------
