@@ -1,3 +1,11 @@
 ^SDGdetector\.Rproj$
 ^\.Rproj\.user$
 ^\.github$
+^cran-comments\.md$
+^CRAN-SUBMISSION$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^paper$
+^LICENSE\.md$
+LICENSE
