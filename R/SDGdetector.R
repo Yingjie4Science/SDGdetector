@@ -16,6 +16,7 @@
 #'
 #' @param x   Data frame or a string
 #' @param col Column name for text to be assessed
+#' @param quiet Logical. Suppress info message
 #'
 #' @return
 #' Data frame with the same information as `df` and 18 extra columns: 17 columns marking
@@ -35,7 +36,7 @@
 #' SDGdetector(my_text, my_col)
 
 
-SDGdetector <- function(x, col) {
+SDGdetector <- function(x, col, quiet = FALSE) {
   nchr <- sdgs <- id <- NULL
 
   # data(SDG_keys, "SDG_keys")
@@ -48,10 +49,14 @@ SDGdetector <- function(x, col) {
     # print('change/put the string into a dataframe')
 
     ## check the number of characters in the sentence
-    if(nchar(x) > 750){
-      message(paste0("The length of your input text reached the limit in PCRE, ",
-                     "please split your input text into shorts ones for another try.",
-                     "Idealy, `nchar(x)` should smaller than 750. "))
+    if (nchar(x) > 750) {
+      message(
+        paste0(
+          "The length of your input text reached the limit in PCRE, ",
+          "please split your input text into shorts ones for another try.",
+          "Idealy, `nchar(x)` should smaller than 750. "
+        )
+      )
     }
 
 
@@ -74,7 +79,7 @@ SDGdetector <- function(x, col) {
       ## at the sentence level - count once if goals/targets are mentioned ---------------
       dplyr::mutate(
         match = ifelse(
-          grepl(pattern = sdg_i_obj, x = col, ignore.case = T, perl = T), 1, 0))                    %>% ## yes-1 or no-0 if they match
+          grepl(pattern = sdg_i_obj, x = col, ignore.case = T, perl = T), 1, 0)) %>% ## yes-1 or no-0 if they match
           # grepl(pattern = sdg_i_obj, x = as.character({{col}}), ignore.case = T, perl = T), 1, 0))  %>% ## yes-1 or no-0 if they match
         dplyr::mutate(
           sdgs  = ifelse(match > 0, paste0(sdgs, ',', sdg_i_str), sdgs)) %>%

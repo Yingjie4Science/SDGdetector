@@ -28,6 +28,7 @@ sdg_id_list <- unique(SDG_keys$SDG_id)
 #' @param x        A vector of strings
 #' @param sdg_id   SDG Goal's ID or Target's ID, in the format of 'SDGx_y', e.g., SDG1_1, SDG2_general
 #' @param operator 'AND', 'OR' to combine a vector of keywords for identifying SDG Goals or Targets.
+#' @param quiet Logical. Suppress info message
 #'
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate select left_join group_by
@@ -39,7 +40,7 @@ sdg_id_list <- unique(SDG_keys$SDG_id)
 #' terms_new <- c("improve", "farmer", "income")
 #' add_sdg_pattern(sdg_id = 'SDG1_2', x = terms_new, operator = 'AND')
 #'
-add_sdg_pattern <- function(sdg_id, x, operator = 'AND') {
+add_sdg_pattern <- function(sdg_id, x, operator = 'AND', quiet = FALSE) {
 
   ## check the format of `sdg_id`
   if(any(!sdg_id %in% sdg_id_list)){
