@@ -4,7 +4,7 @@
 \alias{plot_sdg_bar}
 \title{SDG bar plot}
 \usage{
-plot_sdg_bar(data, sdg = sdg, value = value)
+plot_sdg_bar(data, sdg = "sdg", value = "value", quiet = FALSE)
 }
 \arguments{
 \item{data}{Data frame as the input}

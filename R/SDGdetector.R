@@ -3,8 +3,6 @@
 #' @description
 #' Identify 17 Sustainable Development Goals and associated 169 targets in text.
 #'
-#' @usage SDGdetector(x, col)
-#'
 #' @details
 #' In 2015, leaders worldwide adopted 17 Sustainable Development Goals (SDGs) with 169
 #' targets to be achieved by 2030 (https://sdgs.un.org). The framework of SDGs serves
@@ -34,7 +32,9 @@
 #' contributes to slowing down climate change")
 #' my_text <- data.frame(my_col)
 #' SDGdetector(my_text, my_col)
-SDGdetector <- function(x, col, quiet = FALSE) {
+SDGdetector <- function(x,
+                        col,
+                        quiet = FALSE) {
   nchr <- sdgs <- id <- NULL
 
   # data(SDG_keys, "SDG_keys")

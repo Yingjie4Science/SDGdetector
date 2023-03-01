@@ -1,7 +1,4 @@
 #' SDG bar plot
-#' @description SDG bar plot
-#'
-#' @usage plot_sdg_bar(data, sdg = sdg, value = value)
 #'
 #' @param data  Data frame as the input
 #' @param value The value, e.g., number of SDGs, to be show in the thematic map
@@ -22,7 +19,10 @@
 #' @return Returns the tool text outputs.
 #' @export
 #'
-plot_sdg_bar <- function(data, sdg = "sdg", value = "value", quiet = FALSE) {
+plot_sdg_bar <- function(data,
+                         sdg = "sdg",
+                         value = "value",
+                         quiet = FALSE) {
   k <- which(names(data) %in% c(deparse(substitute(SDG)), deparse(substitute(Value))))
   names(data)[k] <- c("sdg", "value")
 
@@ -81,4 +81,3 @@ plot_sdg_bar <- function(data, sdg = "sdg", value = "value", quiet = FALSE) {
 
   return(p1)
 }
-

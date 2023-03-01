@@ -4,7 +4,7 @@
 \alias{SDGdetector}
 \title{Identify SDGs in text}
 \usage{
-SDGdetector(x, col)
+SDGdetector(x, col, quiet = FALSE)
 }
 \arguments{
 \item{x}{Data frame or a string}
