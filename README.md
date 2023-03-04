@@ -2,6 +2,7 @@
 [![CRAN downloadcount](https://cranlogs.r-pkg.org/badges/grand-total/SDGdetector)](https://cranlogs.r-pkg.org/badges/grand-total/SDGdetector)
 [![DOI](https://zenodo.org/badge/431620191.svg)](https://zenodo.org/badge/latestdoi/431620191)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=yingjieli.visitor-badge)
 
 <p align="center">
   <img src="./docs/images/SDG_detector.png" width="300" height="300"/>
