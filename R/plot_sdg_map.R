@@ -34,45 +34,48 @@ plot_sdg_map <- function(data, sdg = "sdg", value = "value",
     deparse(substitute(Value)),
     deparse(substitute(Country))
   ))
-  names(data)[k] <- c("sdg", "value", "country")
 
-  sdg_name <- paste0("SDG", seq(1, 17, 1))
-
-  data$sdg <- factor(data$sdg, levels = sdg_name)
-
-  world <- ne_countries(scale = "small", returnclass = "sf")
-
-
-  if (by_sdg == TRUE) {
-    d1 <- data %>%
-      group_by(country, sdg) %>%
-      dplyr::summarise_at(c("value"), sum, na.rm = TRUE) %>%
-      as.data.frame()
-
-    wd <- merge(world, d1, by.x = "iso_a3", by.y = "country")
-
-    p1 <- ggplot(wd) +
-      geom_sf(data = world) +
-      geom_sf(aes(fill = value)) +
-      scale_fill_distiller(palette = "YlGnBu", direction = 1, na.value = "gray80") +
-      facet_wrap(~sdg) +
-      theme_bw()
+  if (length(k) < 3) {
+    message("The input data must contain a minimum of three columns, including SDG name, numeric value, and geographic location.")
   } else {
-    d1 <- data %>%
-      group_by(country) %>%
-      dplyr::summarise_at(c("value"), sum, na.rm = TRUE) %>%
-      as.data.frame()
+    names(data)[k] <- c("sdg", "value", "country")
 
-    wd <- merge(world, d1, by.x = "iso_a3", by.y = "country")
 
-    p1 <- ggplot(wd) +
-      geom_sf(data = world) +
-      geom_sf(aes(fill = value)) +
-      scale_fill_distiller(palette = "YlGnBu", direction = 1, na.value = "gray80") +
-      theme_bw()
+    sdg_name <- paste0("SDG", seq(1, 17, 1))
+
+    data$sdg <- factor(data$sdg, levels = sdg_name)
+
+    world <- ne_countries(scale = "small", returnclass = "sf")
+
+
+    if (by_sdg == TRUE) {
+      d1 <- data %>%
+        group_by(country, sdg) %>%
+        dplyr::summarise_at(c("value"), sum, na.rm = TRUE) %>%
+        as.data.frame()
+
+      wd <- merge(world, d1, by.x = "iso_a3", by.y = "country")
+
+      p1 <- ggplot(wd) +
+        geom_sf(data = world) +
+        geom_sf(aes(fill = value)) +
+        scale_fill_distiller(palette = "YlGnBu", direction = 1, na.value = "gray80") +
+        facet_wrap(~sdg) +
+        theme_bw()
+    } else {
+      d1 <- data %>%
+        group_by(country) %>%
+        dplyr::summarise_at(c("value"), sum, na.rm = TRUE) %>%
+        as.data.frame()
+
+      wd <- merge(world, d1, by.x = "iso_a3", by.y = "country")
+
+      p1 <- ggplot(wd) +
+        geom_sf(data = world) +
+        geom_sf(aes(fill = value)) +
+        scale_fill_distiller(palette = "YlGnBu", direction = 1, na.value = "gray80") +
+        theme_bw()
+    }
+    return(p1)
   }
-
-
-
-  return(p1)
 }
