@@ -1,0 +1,323 @@
+---
+title: "Text_mining"
+author: "Yingjie"
+date: "01/23/2022"
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+  This script aims to use human intelligence to evaluate the accuracy of the text mining results. 
+  For details, please refer to [this report](https://drive.google.com/file/d/1EHUV6Jc3N4A-IshKU4dbxtIqlfj50mzi/view)
+  
+  
+# Directories and packages
+
+```{r include=FALSE}
+### To clear your environment
+remove(list = ls())
+
+
+# directories
+dir.this <- "./docs/accuracy_evaluation/"
+dir.data <- paste0(dir.this, "data/")
+dir.figures <- dir.this
+
+# load packages
+library(dplyr)
+library(readxl)
+library(writexl)
+
+library(tidyverse) # piping and wrangling
+library(ggplot2)
+library(ggpubr)
+```
+
+
+
+# Data
+
+  We validated the accuracy by conducting three round of test. For each round, we asked 
+  four experts to identify if the machine-coded results are correct or not. 
+  
+  The data are save in XLSX files under each round's folder. 
+  
+  ```
+  
+  ./docs/accuracy_evaluation/
+      |
+      |__ data/
+      |    |
+      |    |__ task1_R1_done/
+      |    |
+      |    |__ task1_R2_done/
+      |    |
+      |    |__ task1_R3_done/
+      |
+      |
+      |__ (results and figures)
+      
+  ```
+  
+## 1. Clean data from each round
+
+  First, we need to 
+    - read in and clean four coders' data
+    - calculate the accuracy based on each coder's evaluation 
+    - check alignment across coders 
+    - save result in xlsx for visualization 
+  
+  Please modify `nth_round` and run all the code in this section 
+  (i.e., Section ## 1. Clean data from each round) before running code in the 2nd section
+  for visualization. In this case, you will need to run code in section 1 for three times. 
+  
+```{r - read and clean}
+getwd()
+
+
+## choose the round number and run all code in section 1.
+nth_round <- 1
+# nth_round <- 2
+# nth_round <- 3
+
+
+## list data from this round of evaluation -----------------------------------------------
+dir.task1 <- paste0(dir.data, "task1_R", nth_round, "_done")
+dir.task1
+f.ls <- list.files(path = dir.task1, pattern = "task1_", full.names = T, recursive = T)
+f.ls
+## test line
+# f    <- "./Data/data_TextMining/coded_validation_coder/planB_done/task1/task1_YL.xlsx"
+
+
+## read in all the XLSX ------------------------------------------------------------------
+ds <- data.frame()
+for (f in f.ls) {
+  coder <- basename(f) %>% gsub("task1_|\\.xlsx", "", .)
+  coder
+  d <- readxl::read_excel(path = f) %>%
+    dplyr::mutate(coder = coder, index = as.numeric(row.names(.)))
+  ds <- rbind(ds, d)
+}
+
+unique(ds$correct_or_not)
+unique(ds$coder)
+
+
+## unify the checking result to "0, 1, NA" only ------------------------------------------
+ds0 <- ds %>%
+  dplyr::mutate(coder = gsub(pattern = ".*_", "", coder)) %>% ## clean coder name
+  dplyr::mutate(correct_or_not = gsub(pattern = "\\*", "", correct_or_not)) %>% ## clean coder's response
+  dplyr::mutate(correct = case_when(
+    correct_or_not == "1" ~ 1,
+    correct_or_not == "0" ~ 0,
+    is.na(correct_or_not) ~ NA_real_,
+    grepl("^Y", correct_or_not) ~ 1,
+    TRUE ~ 0
+  )) %>%
+  dplyr::select(coder, correct, correct_or_not, everything())
+
+
+ds1 <- ds0 %>%
+  arrange(correct_or_not)
+
+
+
+## to check the alignment across coders --------------------------------------------------
+ds2 <- ds1 %>%
+  dplyr::select(coder, correct, company, index) %>%
+  ## only analyze rows being checked
+  # dplyr::filter(!is.na(correct)) %>%
+  spread(key = coder, value = correct) %>%
+  dplyr::mutate(
+    same12 = ifelse(MC == VF, 1, 0),
+    same13 = ifelse(MC == YL, 1, 0),
+    same14 = ifelse(MC == YZ, 1, 0),
+    same23 = ifelse(VF == YL, 1, 0),
+    same24 = ifelse(VF == YZ, 1, 0),
+    same34 = ifelse(YL == YZ, 1, 0),
+    same3 = ifelse(MC == YL & YZ == YL, 1, 0),
+    same4 = ifelse(MC == YL & YZ == YL & VF == YL, 1, 0)
+  ) %>%
+  as.data.frame()
+```
+
+
+
+```{r - accuracy}
+names(ds2)
+
+### The accuracy of our SDGdetector judged by SDG experts
+ds_accuracy <- ds2 %>%
+  dplyr::select(company, index, MC, VF, YL, YZ) %>%
+  gather(key = "coder", value = "value", 3:ncol(.)) %>%
+  dplyr::group_by(coder) %>%
+  dplyr::summarise(accuracy = sum(value, na.rm = T) / nrow(ds2)) %>%
+  dplyr::mutate(id = row.names(.)) %>%
+  dplyr::select(id, everything())
+ds_accuracy
+
+
+### test code
+# (sum(ds2$MC, na.rm = T)/nrow(ds2)) %>%
+#   scales::percent() %>%
+#   cat('accuracy by MC:', .)
+```
+
+
+
+
+```{r - alignment across coders}
+names(ds2)
+
+### The inter-expert reliability
+ds_intercoder <- ds2 %>%
+  dplyr::select(company, index, same12, same13, same14, same23, same24, same34) %>%
+  gather(key = "pair", value = "value", 3:ncol(.)) %>%
+  dplyr::group_by(pair) %>%
+  dplyr::summarise(alignment = sum(value, na.rm = T) / nrow(ds2))
+
+ds_intercoder
+```
+
+
+
+```{r - save result in xlsx}
+## save to XLSX for easy read
+f <- paste0(dirname(dir.task1), "/", "results_accuracy_", basename(dir.task1), ".xlsx")
+f
+writexl::write_xlsx(ds_accuracy, path = f)
+
+f <- paste0(dirname(dir.task1), "/", "results_intercoder_", basename(dir.task1), ".xlsx")
+f
+writexl::write_xlsx(ds_intercoder, path = f)
+```
+
+
+
+## 2. Visulzation of the results
+
+```{r - read in results}
+## for accuracy
+ind <- "results_accuracy_"
+fs <- list.files(path = dirname(dir.task1), pattern = ind, full.names = T)
+# f <- fs[1]
+dfs_acc <- data.frame()
+
+for (f in fs) {
+  # print(f)
+  round_id <- f %>%
+    basename(.) %>%
+    gsub(ind, "", .) %>%
+    gsub("task1_|_done.xlsx", "", .)
+  # print(round_id)
+
+  acc <- readxl::read_excel(f) %>%
+    dplyr::mutate(round_id = round_id)
+  dfs_acc <- rbind(dfs_acc, acc)
+}
+
+
+
+## for inter-coder
+ind <- "results_intercoder_"
+fs <- list.files(path = dirname(dir.task1), pattern = ind, full.names = T)
+# f <- fs[1]
+dfs_int <- data.frame()
+
+for (f in fs) {
+  # print(f)
+  round_id <- f %>%
+    basename(.) %>%
+    gsub(ind, "", .) %>%
+    gsub("task1_|_done.xlsx", "", .)
+  # print(round_id)
+
+  int <- readxl::read_excel(f) %>%
+    dplyr::mutate(round_id = round_id)
+  dfs_int <- rbind(dfs_int, int)
+}
+```
+
+
+
+
+```{r - plot accuracy}
+## plot ----------------------------------------------------------------------------------
+
+mean(dfs_acc$accuracy)
+fun_mean <- function(x) {
+  return(data.frame(y = mean(x), label = round(mean(x, na.rm = T), digits = 2)))
+}
+
+p1 <- dfs_acc %>%
+  ggplot(aes(x = 1, y = accuracy)) +
+  geom_boxplot(fill = "gray", show.legend = F, varwidth = .5) + # , fill = round_id
+  stat_summary(fun = mean, geom = "point", shape = 15, size = 3, alpha = 0.6, color = "red", fill = "red") +
+  stat_summary(fun.data = fun_mean, geom = "text", vjust = .5, hjust = -0.2, color = "red") +
+  scale_y_continuous(limits = c(0.7, .85)) +
+  geom_jitter(color = "black", shape = 1, size = 2, alpha = 0.6, width = .05) +
+  xlab("Overall") +
+  ylab("Accuracy") +
+  theme_bw() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text.x = element_text(colour = "transparent"),
+    axis.ticks = element_blank(),
+    legend.position = "none"
+  )
+p2 <- dfs_acc %>%
+  ggplot(aes(x = round_id, y = accuracy)) + # , fill = round_id
+  geom_boxplot(alpha = .8) + #
+  scale_y_continuous(limits = c(0.7, .85)) +
+  geom_jitter(color = "black", shape = 1, size = 2, alpha = 0.6, width = .05) +
+  xlab("Each Round of Inspection") +
+  ylab("") +
+  theme_bw() +
+  theme(legend.position = "none")
+p <- ggarrange(p1, p2, widths = c(1, 3))
+
+fname <- paste0(dir.figures, "Inspection_Accuracy.png")
+fname
+ggsave(fname, plot = p, width = 6.5, height = 3.2, units = "in", dpi = 300)
+```
+
+
+```{r - plot inter-coder}
+p3 <- dfs_int %>%
+  ggplot(aes(x = 1, y = alignment)) +
+  geom_boxplot(fill = "gray", show.legend = F, varwidth = .5) + # , fill = round_id
+  stat_summary(fun = mean, geom = "point", shape = 15, size = 3, alpha = 0.6, color = "red", fill = "red") +
+  stat_summary(fun.data = fun_mean, geom = "text", vjust = .7, hjust = -0.3, color = "red") +
+  scale_y_continuous(limits = c(0.7, .9)) +
+  geom_jitter(color = "black", shape = 1, size = 2, alpha = 0.6, width = .05) +
+  xlab("Overall") +
+  ylab("Inter-expert Reliability") +
+  theme_bw() +
+  theme(
+    panel.grid = element_blank(),
+    axis.text.x = element_text(colour = "transparent"),
+    axis.ticks = element_blank(),
+    legend.position = "none"
+  )
+
+
+p4 <- dfs_int %>%
+  ggplot(aes(x = round_id, y = alignment)) + # , fill = round_id
+  geom_boxplot(alpha = .8) + #
+  scale_y_continuous(limits = c(0.7, .9)) +
+  geom_jitter(color = "black", shape = 1, size = 2, alpha = 0.6, width = .05) +
+  xlab("Each Round of Inspection") +
+  ylab("") +
+  theme_bw() +
+  theme(legend.position = "none")
+p <- ggarrange(p3, p4, widths = c(1, 3))
+
+fname <- paste0(dir.figures, "Inspection_InterExpert.png")
+fname
+ggsave(fname, plot = p, width = 6.5, height = 3.2, units = "in", dpi = 300)
+```
+
+
+ 
