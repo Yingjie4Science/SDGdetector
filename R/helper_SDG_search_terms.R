@@ -57,7 +57,7 @@ func_AND_vector <- function(v){
 #'
 #' @examples
 #' words <- c('apple', 'bean', 'food')
-#' func_AND_vector(v= words)
+#' func_OR_vector(v= words)
 func_OR_vector <- function(v){
   pat <- paste0(v, collapse = "|")
   pat <- paste0("(", pat, ")")
