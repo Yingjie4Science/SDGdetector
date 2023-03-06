@@ -17,5 +17,5 @@ Use \code{OR} to Concatenate a Vector of Terms
 }
 \examples{
 words <- c('apple', 'bean', 'food')
-func_AND_vector(v= words)
+func_OR_vector(v= words)
 }
