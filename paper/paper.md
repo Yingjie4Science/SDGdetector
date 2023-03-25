@@ -10,12 +10,12 @@ authors:
     - name: Yingjie Li
       orcid: 0000-0002-8401-0649
       affiliation: "1, 2"
-    - name: Yongze Song
-      orcid: 0000-0003-3420-9622
-      affiliation: 3
     - name: Veronica F. Frans
       orcid: 0000-0002-5634-3956
       affiliation: 1
+    - name: Yongze Song
+      orcid: 0000-0003-3420-9622
+      affiliation: 3
     - name: Meng Cai
       orcid: 0000-0002-8318-572X
       affiliation: "4, 5"
@@ -36,7 +36,7 @@ affiliations:
       index: 4
     - name: Institute for Traffic Planning and Traffic Engineering, Technical University of Darmstadt, Darmstadt 64287, Germany
       index: 5  
-date: 5 December 2022
+date: 25 March 2023
 bibliography: paper.bib
 
 ---
