@@ -10,6 +10,7 @@ authors:
     - name: Yingjie Li
       orcid: 0000-0002-8401-0649
       affiliation: "1, 2, 3"
+      corresponding: true
     - name: Veronica F. Frans
       orcid: 0000-0002-5634-3956
       affiliation: "1, 4, 5"
