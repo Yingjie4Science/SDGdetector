@@ -9,33 +9,39 @@ tags:
 authors:
     - name: Yingjie Li
       orcid: 0000-0002-8401-0649
-      affiliation: "1, 2"
+      affiliation: "1, 2, 3"
     - name: Veronica F. Frans
       orcid: 0000-0002-5634-3956
-      affiliation: 1
+      affiliation: "1, 4, 5"
     - name: Yongze Song
       orcid: 0000-0003-3420-9622
-      affiliation: 3
+      affiliation: 6
     - name: Meng Cai
       orcid: 0000-0002-8318-572X
-      affiliation: "4, 5"
+      affiliation: "7, 8"
     - name: Yuqian Zhang
       orcid: 0000-0001-7576-2526
-      affiliation: 1
+      affiliation: "1, 2"
     - name: Jianguo Liu
       orcid: 0000-0001-6344-0087
-      affiliation: 1
+      affiliation: "1, 2"
 affiliations:
-    - name: Center for Systems Integration and Sustainability, Michigan State University, East Lansing, MI 48823, United States
+    - name: Center for Systems Integration and Sustainability, Department of Fisheries and Wildlife, Michigan State University, East Lansing, MI 48823, United States
       index: 1
-    - name: Natural Capital Project, Stanford University, Stanford, CA, 94305, United States
+    - name: Environmental Science and Policy Program, Michigan State University, East Lansing, MI 48823, United States
       index: 2
-    - name: School of Design and the Built Environment, Curtin University, Perth, WA, 6102, Australia
+    - name: Natural Capital Project, Woods Institute for the Environment, Stanford University, Stanford, CA, 94305, United States
       index: 3
+    - name: Ecology, Evolution, and Behavior Program, Michigan State University, East Lansing, MI 48824, United States
+      index: 4  
+    - name: W.K. Kellogg Biological Station, Michigan State University, Hickory Corners, MI 49060, United States
+      index: 5
+    - name: School of Design and the Built Environment, Curtin University, Perth, WA, 6102, Australia
+      index: 6
     - name: School of Planning, Design and Construction, Michigan State University, East Lansing, MI, 48824, United States
-      index: 4
-    - name: Institute for Traffic Planning and Traffic Engineering, Technical University of Darmstadt, Darmstadt 64287, Germany
-      index: 5  
+      index: 7
+    - name: Department of Civil and Environmental Engineering, Technical University of Darmstadt, Darmstadt 64287, Germany
+      index: 8  
 date: 25 March 2023
 bibliography: paper.bib
 
@@ -55,7 +61,7 @@ The Sustainable Development Goals (SDGs) agenda, adopted by all United Nations M
 
 The SDGdetector package was developed by (1) compiling six existing databases on SDG search queries [@un_global_2019; @duran-silva_controlled_2019; @jayabalasingham_identifying_2019; @vanderfeesten_search_2020; @schubert_scientific_2020; @bautista-puig_unveiling_2019; @wulff_text2sdg_2021]; (2) reviewing all SDG targets and indicators [@un_global_2019] to manually refine and update the search terms to create query dictionaries at the levels of the 17 SDGs and the 169 SDG targets (which correspond to the 231 SDG indicators); (3) manually assessing and improving the accuracy of these queries using thousands of randomly-selected statements from real-world corporate annual reports across multiple iterations; and (4) turning these queries into a lexical database for text mining across large bodies of text and tabulating the matched SDGs and SDG targets.
 
-SDGdetector is a unique tool because it is by far the only one available that is equipped with a database for detecting SDG-relevant statements at the target level. We are aware of another useful R package (*text2sdg*)[@wulff_text2sdg_2021], which mostly uses single words as search terms and was designed to only map text to SDGs at the goal level (coarser resolution). Our search queries in the comprehensive database further considered sentence structure to reduce noise hits, and can capture hits at both goal and target level. In combination with this database, the text mining approach, an artificial intelligence (AI) technology, enables us to use natural language processing to transform the unstructured text within documents into normalized and structured data suitable for analysis and visualization. After repeated validation and calibration, this package has achieved high accuracy in detecting SDG-related statements within textual data (> 75.5%, measured by the alignment between the R package results and four experts’ manually-coded results; see the "Accuracy Evaluation" section on [GitHub](https://github.com/Yingjie4Science/SDGdetector) for more information). Complete data and code necessary for reproducing this accuracy evaluation can be found on our GitHub repository under the [`./docs/accuracy_evaluation/`](https://github.com/Yingjie4Science/SDGdetector/tree/main/docs/accuracy_evaluation) folder. Other similar tools, such as the *text2sdg*, however, did not report any accuracy evaluations. 
+SDGdetector is a unique tool because it is by far the only one available that is equipped with a database for detecting SDG-relevant statements at the target level. We are aware of another useful R package (*text2sdg*)[@wulff_text2sdg_2021], which mostly uses single words as search terms and was designed to only map text to SDGs at the goal level (coarser resolution). Our search queries in the comprehensive database further considered sentence structure to reduce noise hits, and can capture hits at both goal and target levels. In combination with this database, the text mining approach, an artificial intelligence (AI) technology, enables us to use natural language processing to transform the unstructured text within documents into normalized and structured data suitable for analysis and visualization. After repeated validation and calibration, this package has achieved high accuracy in detecting SDG-related statements within textual data (> 75.5%, measured by the alignment between the R package results and four experts’ manually-coded results; see the "Accuracy Evaluation" section on [GitHub](https://github.com/Yingjie4Science/SDGdetector) for more information). Complete data and code necessary for reproducing this accuracy evaluation can be found on our GitHub repository under the [`./docs/accuracy_evaluation/`](https://github.com/Yingjie4Science/SDGdetector/tree/main/docs/accuracy_evaluation) folder. Other similar tools, such as the *text2sdg*, however, did not report any accuracy evaluations. 
 
 This lightweight package has great potential to be useful in many disciplines with objectives to identify which SDGs and to what extent an entity is putting effort into them. This package can be used in large-scale research projects in the field of corporate sustainability and urban science. It can also be used in systematic reviews and syntheses of published literature and patents. The associated lexical database embedded within this R package can be also used for developing similar applications in Python or other programming languages. 
 
@@ -131,6 +137,6 @@ plot_sdg_map(data = df, sdg = SDG, value = Value, country = Country, by_sdg = F)
 
 # Acknowledgements
 
-The authors acknowledge contributions from UN Global Sustainability Index Institute (UNGSII) Foundation during the genesis of this project. We thank Racheline Maltese for her input in developing the SDG search terms during the early stages of this project. This work was funded by the National Science Foundation (grant numbers: DEB-1924111, OAC-2118329). VFF was supported by the National Science Foundation Graduate Research Fellowship Program (Fellow ID: 2018253044).
+The authors acknowledge contributions from UN Global Sustainability Index Institute (UNGSII) Foundation during the genesis of this project. We thank Racheline Maltese for her input in developing the SDG search terms during the early stages of this project. This work was funded by the National Science Foundation (grant numbers: DEB-1924111, OAC-2118329). VFF was supported by the National Science Foundation Graduate Research Fellowship Program (Fellow ID: 2018253044) and the Michigan State University Enrichment Fellowship.
 
 # References
