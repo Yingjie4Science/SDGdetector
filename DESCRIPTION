@@ -5,9 +5,9 @@ Authors@R: c(
       person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-8401-0649")),
       person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut", comment = c(ORCID = "0000-0002-5634-3956")),
       person("Yongze", "Song", email = "yongze.song@outlook.com", role = "aut", comment = c(ORCID = "0000-0003-3420-9622")),
-      person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut"),
-      person("Yuqian", "Zhang", email = "zhan1364@msu.edu", role = "aut"),
-      person("Jianguo", "Liu", email = "liuji@msu.edu", role = "aut")
+      person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut", comment = c(ORCID = "0000-0002-8318-572X")),
+      person("Yuqian", "Zhang", email = "zhan1364@msu.edu", role = "aut", comment = c(ORCID = "0000-0001-7576-2526")),
+      person("Jianguo", "Liu", email = "liuji@msu.edu", role = "aut", comment = c(ORCID = "0000-0001-6344-0087"))
       )
 Description: Identify 17 Sustainable Development Goals and associated 169 targets in text.
 Imports: 
