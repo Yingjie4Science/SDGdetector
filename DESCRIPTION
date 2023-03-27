@@ -1,10 +1,10 @@
 Package: SDGdetector
 Title: Detect SDGs and Targets in Text
-Version: 2.7.1
+Version: 2.7.2
 Authors@R: c(
       person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-8401-0649")),
+      person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut", comment = c(ORCID = "0000-0002-5634-3956")),
       person("Yongze", "Song", email = "yongze.song@outlook.com", role = "aut", comment = c(ORCID = "0000-0003-3420-9622")),
-      person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut"),
       person("Meng", "Cai", email = "mengcai24601@gmail.com", role = "aut"),
       person("Yuqian", "Zhang", email = "zhan1364@msu.edu", role = "aut"),
       person("Jianguo", "Liu", email = "liuji@msu.edu", role = "aut")
@@ -28,7 +28,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 LazyData: true
 NeedsCompilation: no
-Packaged: 2022-12-17 10:11:03 UTC; 268222h
+Packaged: 2023-03-25 10:11:03 UTC; 268222h
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
