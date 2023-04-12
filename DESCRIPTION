@@ -10,6 +10,8 @@ Authors@R: c(
       person("Jianguo", "Liu", email = "liuji@msu.edu", role = "aut", comment = c(ORCID = "0000-0001-6344-0087"))
       )
 Description: Identify 17 Sustainable Development Goals and associated 169 targets in text.
+URL: https://github.com/Yingjie4Science/SDGdetector
+BugReports: https://github.com/Yingjie4Science/SDGdetector/issues
 Imports: 
     dplyr,
     magrittr,

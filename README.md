@@ -4,6 +4,7 @@
 [![CRAN downloadcount](https://cranlogs.r-pkg.org/badges/grand-total/SDGdetector)](https://cranlogs.r-pkg.org/badges/grand-total/SDGdetector)
 [![CRAN downloadcount](https://cranlogs.r-pkg.org/badges/SDGdetector)](https://cranlogs.r-pkg.org/badges/SDGdetector)
 ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=yingjieli.visitor-badge)
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.05124/status.svg)](https://doi.org/10.21105/joss.05124)
 
 <p align="center">
   <img src="./docs/images/SDG_detector.png" width="300" height="300"/>
@@ -118,8 +119,8 @@ Get citation information for *SDGdetector* in R doing
 ```
 To cite SDGdetector in publications, please use:
 
-  Li et al. (2023). SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals. Journal of Open Source Software, 0(0), 6 PAGE.
-  https://doi.org/10.xxxxxx/draft.
+  Li et al. (2023). SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals. Journal of Open Source Software 8, 5124.
+  https://doi.org/10.21105/joss.05124.
 
 A BibTeX entry for LaTeX users is
 
@@ -127,10 +128,11 @@ A BibTeX entry for LaTeX users is
     title = {SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals},
     author = {Yingjie Li and Veronica F. Frans and Yongze Song and Meng Cai and Yuqian Zhang and Jianguo Liu},
     journal = {Journal of Open Source Software},
+    doi = {10.21105/joss.05124},
     year = {2023},
-    volume = {1},
-    number = {1},
-    pages = {6},
+    volume = {8},
+    number = {84},
+    pages = {5124},
     url = {https://github.com/Yingjie4Science/SDGdetector},
   }
 ```
