@@ -1,8 +1,8 @@
 citHeader("To cite SDGdetector in publications use:")
 
 bibentry(
-  bibtype    = "Article",
-  title    = "SDGdetector: an R-based text mining tool for quantifying the efforts toward Sustainable Development Goals",
+  bibtype  = "Article",
+  title    = "SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals",
   author   = c(
       person("Yingjie", "Li", email = "yingjieli.edu@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-8401-0649")),
       person("Veronica", "Frans", email = "verofrans@gmail.com", role = "aut", comment = c(ORCID = "0000-0002-5634-3956")),
@@ -12,12 +12,14 @@ bibentry(
       person("Jianguo", "Liu", email = "liuji@msu.edu", role = "aut", comment = c(ORCID = "0000-0001-6344-0087"))
       ),
   journal  = "Journal of Open Source Software",
+  doi = "10.21105/joss.05124",
   year     = 2023,
-  volume   = 1,
-  number   = 1,
-  pages    = 6,
+  volume   = 8,
+  number   = 84,
+  pages    = 5124,
   url      = "https://github.com/Yingjie4Science/SDGdetector",
-  textVersion = paste("Li et al. (2022). SDGdetector: an R-based text mining tool for quantifying the efforts toward Sustainable Development Goals. Journal of Open Source Software, 0(0), 6 PAGE. https://doi.org/10.xxxxxx/draft."
+  textVersion = paste("Li, Y., Frans, V.F., Song, Y., Cai, M., Zhang, Y., Liu, J., 2023. SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals. Journal of Open Source Software 8(84), 5124. https://doi.org/10.21105/joss.05124"
 
   )
 )
+
