@@ -23,6 +23,15 @@ plot_sdg_bar <- function(data,
                          sdg = "sdg",
                          value = "value",
                          quiet = FALSE) {
+
+  # check if columns present
+  required_columns <- c("SDG", "Value")
+  if (any(!required_columns %in% names(data))) {
+    missing <- required_columns[!required_columns %in% names(data)]
+    stop(paste0("Data object must include columns [", paste0(missing, collapse = ", "), "]."))
+  }
+
+  # rename the two required columns
   k <- which(names(data) %in% c(deparse(substitute(SDG)), deparse(substitute(Value))))
   names(data)[k] <- c("sdg", "value")
 
