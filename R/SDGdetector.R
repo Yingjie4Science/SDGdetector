@@ -17,9 +17,9 @@
 #' @param quiet Logical. Suppress info message
 #'
 #' @return
-#' Data frame with the same information as `df` and 18 extra columns: 17 columns marking
-#' the number of occurrence of each of the 17 SDGs and one column `match_detail` listing
-#' details of specific targets.
+#' Data frame with the same columns as the `df` plus one extra column named "sdgs", which
+#' list the occurrence (or hits) of SDG goals or targets detected from each sentence in rows.
+#' Users can further use our function `summarize_sdg()` to clean the result for visulization.
 #'
 #' @importFrom magrittr %>%
 #' @importFrom dplyr mutate select relocate last_col desc

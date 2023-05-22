@@ -14,9 +14,9 @@ SDGdetector(x, col, quiet = FALSE)
 \item{quiet}{Logical. Suppress info message}
 }
 \value{
-Data frame with the same information as \code{df} and 18 extra columns: 17 columns marking
-the number of occurrence of each of the 17 SDGs and one column \code{match_detail} listing
-details of specific targets.
+Data frame with the same columns as the \code{df} plus one extra column named "sdgs", which
+list the occurrence (or hits) of SDG goals or targets detected from each sentence in rows.
+Users can further use our function \code{summarize_sdg()} to clean the result for visulization.
 }
 \description{
 Identify 17 Sustainable Development Goals and associated 169 targets in text.
