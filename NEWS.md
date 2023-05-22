@@ -1,12 +1,10 @@
-# SDGdetector 2.7.1
+# SDGdetector 2.7.2
 
 * the version for JOSS publication.
 
 
 ## New edits
 
-  - fix author affiliation information
-  - fix typos
-  - add automated tests for all functions, now test coverage=93.45%, per reviewers' comments
-  - added instructions in the paper for replicating the accuracy assessment, per reviewers' comments
+  - added a new function `summarize_sdg`
+  - fix the the description of "return" in `SDGdetector`
 
