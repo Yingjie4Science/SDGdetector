@@ -1,10 +1,10 @@
+[![DOI](https://joss.theoj.org/papers/10.21105/joss.05124/status.svg)](https://doi.org/10.21105/joss.05124)
 [![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/SDGdetector)](https://CRAN.R-project.org/package=SDGdetector)
-[![DOI](https://zenodo.org/badge/431620191.svg)](https://zenodo.org/badge/latestdoi/431620191)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![CRAN downloadcount](https://cranlogs.r-pkg.org/badges/grand-total/SDGdetector)](https://cranlogs.r-pkg.org/badges/grand-total/SDGdetector)
 [![CRAN downloadcount](https://cranlogs.r-pkg.org/badges/SDGdetector)](https://cranlogs.r-pkg.org/badges/SDGdetector)
 ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=yingjieli.visitor-badge)
-[![DOI](https://joss.theoj.org/papers/10.21105/joss.05124/status.svg)](https://doi.org/10.21105/joss.05124)
+
 
 <p align="center">
   <img src="./docs/images/SDG_detector.png" width="300" height="300"/>
@@ -13,6 +13,8 @@
 # SDG Detector
 
 In 2015, leaders worldwide adopted 17 Sustainable Development Goals (SDGs) with 169 targets to be achieved by 2030 (https://sdgs.un.org). The framework of SDGs serves as a blueprint for shared prosperity for both people and the earth. `SDGdetector` identifies both direct and indirect expressions of SDGs and associated targets in chunks of text. It takes a data frame with a specified column of text to process as inputs, and outputs a data frame with original columns plus matched SDGs and targets.
+
+For Python package, check <a target="_blank" href="https://github.com/caimeng2/seesus/tree/main">`seesus`</a>.
 
 ## Installation
 
@@ -98,7 +100,7 @@ plot_sdg_map(data = df, sdg = SDG, value = Value, country = Country, by_sdg = F)
 
 ## Accuracy Evaluation
 
-This package has achieved high accuracy in detecting SDG-related statements within textual data (> 75%, measured by the alignment between the R package results and four experts' manually-coded results; see this [supplementary document](https://drive.google.com/file/d/1EHUV6Jc3N4A-IshKU4dbxtIqlfj50mzi/view?usp=share_link) for more information. The data and code for reproducing the performance metrics can be found in this repo under [`./docs/accuracy_evaluation/`](https://github.com/Yingjie4Science/SDGdetector/tree/main/docs/accuracy_evaluation). 
+This package has achieved high accuracy in detecting SDG-related statements within textual data (> 75%, measured by the alignment between the R package results and four experts' manually-coded results; see this [supplementary document](https://drive.google.com/file/d/14TV54YCQqKwO9j-abC2RuKpy9tKY7jXM/view?usp=sharing) for more information. The data and code for reproducing the performance metrics can be found in this repo under [`./docs/accuracy_evaluation/`](https://github.com/Yingjie4Science/SDGdetector/tree/main/docs/accuracy_evaluation). 
 
 <p align="left">
   <img src="./docs/images/Inspection_Accuracy.png" height="300"/>
@@ -116,13 +118,16 @@ The SDGdetector **R** package is distributed under the [GNU General Public Licen
 Get citation information for *SDGdetector* in R doing
     `citation(package = 'SDGdetector')`
     
-```
+
 To cite SDGdetector in publications, please use:
 
-  Li, Y., Frans, V.F., Song, Y., Cai, M., Zhang, Y., Liu, J. (2023). SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals. Journal of Open Source Software 8(84), 5124. https://doi.org/10.21105/joss.05124.
+```
+Li, Y., Frans, V.F., Song, Y., Cai, M., Zhang, Y., Liu, J. (2023). SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals. Journal of Open Source Software 8(84), 5124. https://doi.org/10.21105/joss.05124.
+```
 
 A BibTeX entry for LaTeX users is
 
+```
   @Article{,
     title = {SDGdetector: an R-based text mining tool for quantifying efforts toward Sustainable Development Goals},
     author = {Yingjie Li and Veronica F. Frans and Yongze Song and Meng Cai and Yuqian Zhang and Jianguo Liu},
