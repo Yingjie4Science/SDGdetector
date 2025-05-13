@@ -76,15 +76,9 @@ SDGdetector <- function(x,
         ## at the sentence level - count once if goals/targets are mentioned -------------
         dplyr::mutate(
           match = ifelse(
-            grepl(
-              pattern = sdg_i_obj,
-              x = col,
-              ignore.case = T,
-              perl = T
-            ),
-            1,
-            0
-          )
+            # grepl(pattern = sdg_i_obj, x = col, ignore.case = T, perl = T ), 1, 0 )
+            ###' option 2/ stringr::str_detect() uses stringi, which avoids common PCRE issues like match limit exceeded
+            stringr::str_detect(col, regex(sdg_i_obj, ignore_case = TRUE)), 1, 0)
         ) %>% ## yes-1 or no-0 if they match
         dplyr::mutate(
           sdgs = ifelse(match > 0, paste0(sdgs, ",", sdg_i_str), sdgs)
@@ -131,15 +125,9 @@ SDGdetector <- function(x,
         ## at the sentence level - count once if goals/targets are mentioned ---------------
         dplyr::mutate(
           match = ifelse(
-            grepl(
-              pattern = sdg_i_obj,
-              x = as.character(col),
-              ignore.case = T,
-              perl = T
-            ),
-            1,
-            0
-          )
+            # grepl(pattern = sdg_i_obj, x = as.character(col), ignore.case = T, perl = T), 1, 0 )
+            ###' option 2/ stringr::str_detect() uses stringi, which avoids common PCRE issues like match limit exceeded
+            stringr::str_detect(col, regex(sdg_i_obj, ignore_case = TRUE)), 1, 0)
         ) %>% ## yes-1 or no-0 if they match
         dplyr::mutate(
           sdgs = ifelse(match > 0, paste0(sdgs, ",", sdg_i_str), sdgs)
